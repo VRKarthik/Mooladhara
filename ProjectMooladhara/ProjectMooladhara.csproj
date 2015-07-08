@@ -166,6 +166,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Icons\code-2x.png" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +196,6 @@
     <Resource Include="Themes\Metro\HowToApplyTheme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\code-2x.png" />
     <Resource Include="Icons\code-3x.png" />
     <Resource Include="Icons\code.png" />
     <Resource Include="Icons\cog-2x.png" />
