@@ -15,7 +15,6 @@
                     <Fluent:Backstage x:Name="BackStage">
                         <Fluent:BackstageTabControl>
                             <Fluent:BackstageTabItem Header="New Project">
-
                                 <Grid>
                                     <Grid Margin="10,10,10,10">
                                         <Label x:Name="LBLNewProject" VerticalContentAlignment="Center" Content="New project" Margin="10,10,10,0" VerticalAlignment="Top" Height="50" Width="305"  FontSize="26.667" HorizontalAlignment="Left" />
@@ -33,8 +32,8 @@
                                         <ListBox x:Name="LBXDeviceList" HorizontalAlignment="Left" Margin="10,65,0,10" Foreground="Black"  Width="233.5" SelectionChanged="ListBox_SelectionChanged">
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
-                                                    <StackPanel Orientation="Vertical">
-                                                        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" Height="70" Source="Icons/mchip.png"></Image>
+                                                    <StackPanel Margin="0,10,0,10" Orientation="Vertical">
+                                                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" Style="{StaticResource Controller}"></ContentControl>
                                                         <Label Height="40" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding Path=DeviceName}"></Label>
                                                     </StackPanel>
                                                 </DataTemplate>
@@ -50,7 +49,7 @@
                                                     <ListBox.ItemTemplate>
                                                         <DataTemplate>
                                                             <StackPanel Orientation="Horizontal">
-																<ContentControl Margin="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" Height="130" Style="{StaticResource CPU}"></ContentControl>
+																<ContentControl Margin="5,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="120" Style="{StaticResource BoxRounded}"></ContentControl>
 																<StackPanel Margin="10,0,0,0" Orientation="Vertical" ToolTipService.ShowDuration="5000">
 																	<Label Height="30" Padding="0" FontSize="18" VerticalContentAlignment="Center" Content="{Binding Path=SeriesNumberWithDevice}" FontWeight="Bold" Foreground="Blue" />
 																	<Label Height="20" Padding="0" FontSize="12" VerticalContentAlignment="Center" Content="{Binding Path=Description1}" Foreground="Black" />
@@ -247,7 +246,7 @@
 
                             <avalonDock:LayoutAnchorable x:Name="TabProjectExplorer" Title="Projects" CanClose="False" CanHide="True">
 								<Grid Background="White" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
-									<TreeView Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="ProjectExplorerTree" />
+									<TreeView Margin="4" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="ProjectExplorerTree" />
 								</Grid>
 							</avalonDock:LayoutAnchorable>
 

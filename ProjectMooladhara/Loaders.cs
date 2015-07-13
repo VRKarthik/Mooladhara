@@ -59,7 +59,16 @@ namespace ProjectMooladhara
         {
             try
             {
+                TreeViewItem objSolutionFolder = new TreeViewItem();
+                objSolutionFolder.Tag = SharedData.CurrentProjectSolutionPath;
+                objSolutionFolder.Header = "Project - " + SharedData.CurrentProjectName;
 
+                TreeViewItem objProjectFolder = new TreeViewItem();
+                objProjectFolder.Tag = SharedData.CurrentProjectSolutionPath;
+                objProjectFolder.Header = SharedData.CurrentProjectName;
+
+                objSolutionFolder.Items.Add(objProjectFolder);
+                SharedData.objMainWindow.ProjectExplorerTree.Items.Add(objSolutionFolder);
             }
             catch (Exception Ex)
             {
