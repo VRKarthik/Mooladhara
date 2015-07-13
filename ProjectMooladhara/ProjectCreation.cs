@@ -51,7 +51,8 @@ namespace ProjectMooladhara
                 else
                 {
                     DeviceSeries objSelectedDevice = (DeviceSeries)SharedData.objMainWindow.LBXSeries.SelectedItem;
-                    SharedData.SelectedDeviceSeries = objSelectedDevice.SeriesNumber;
+                    SharedData.SelectedDeviceSeries = objSelectedDevice.SeriesNumberWithDevice;
+                    SharedData.SelectedSeries = objSelectedDevice.SeriesNumberOnly;
                 }
 
                 //Checking for project name existence
@@ -106,6 +107,7 @@ namespace ProjectMooladhara
 
                 //Closing backstage
                 SharedData.objMainWindow.BackStage.IsOpen = false;
+                Loaders.LoadProject();
             }
             catch (Exception Ex)
             {

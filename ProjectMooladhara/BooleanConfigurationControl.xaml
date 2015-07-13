@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="ProjectMooladhara.BooleanConfigurationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="300" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" Height="44">
+    <Grid Margin="0">
+    	<CheckBox x:Name="ConfigurationName" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="14.667" Content="Configuration"/>
+    	<Label x:Name="ConfigurationDescription" Margin="0,20,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontStyle="Italic" FontSize="12" Padding="35,5,5,5" Foreground="{DynamicResource AccordionButtonExpandedBackgroundBrush}" Content="description"/>
+            
+    </Grid>
+</UserControl>

@@ -10,11 +10,23 @@ namespace ProjectMooladhara
     {
         private string _SeriesNumber = null;
 
-        public string SeriesNumber
+        public string SeriesNumberWithDevice
         {
             get
             {
                 return SharedData.SelectedDevice + _SeriesNumber;
+            }
+            set
+            {
+                _SeriesNumber = value;
+            }
+        }
+
+        public string SeriesNumberOnly
+        {
+            get
+            {
+                return _SeriesNumber;
             }
             set
             {

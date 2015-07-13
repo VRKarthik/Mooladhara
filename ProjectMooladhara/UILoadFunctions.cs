@@ -26,7 +26,7 @@ namespace ProjectMooladhara
             {
                 ObservableCollection<Devices> RDSDeviceList = new ObservableCollection<Devices>();
 
-                foreach (DataRow objCurrentRow in DataFactory.GetDataTable("Supported_Devices").Rows)
+                foreach (DataRow objCurrentRow in DataFactory.GetDataTable("Supported_Devices", DataFactory.DatabaseSelection.MainDatabase).Rows)
                 {
                     Devices objDevice = new Devices();
                     objDevice.DeviceName = objCurrentRow["dev_name"].ToString().Trim();
@@ -61,21 +61,22 @@ namespace ProjectMooladhara
             {
                 ObservableCollection<DeviceSeries> RDSDeviceSeriesList = new ObservableCollection<DeviceSeries>();
 
-                foreach (DataRow objCurrentRow in DataFactory.GetDataTable(DeviceName).Rows)
+                foreach (DataRow objCurrentRow in DataFactory.GetDataTable(DeviceName, DataFactory.DatabaseSelection.MainDatabase).Rows)
                 {
                     DeviceSeries objDevice = new DeviceSeries();
-                    objDevice.SeriesNumber = objCurrentRow["ID"].ToString().Trim();
+                    objDevice.SeriesNumberWithDevice = objCurrentRow["ID"].ToString().Trim();
+                    objDevice.SeriesNumberOnly = objCurrentRow["ID"].ToString().Trim();
                     objDevice.Description1 = objCurrentRow["DESC1"].ToString().Trim().Split('$')[0];
                     objDevice.Description2 = objCurrentRow["DESC2"].ToString().Trim().Split('$')[0];
                     objDevice.Description3 = objCurrentRow["DESC3"].ToString().Trim().Split('$')[0];
                     objDevice.Description4 = objCurrentRow["DESC4"].ToString().Trim().Split('$')[0];
                     objDevice.Description5 = objCurrentRow["DESC5"].ToString().Trim().Split('$')[0];
 
-                    objDevice.FullDescription1 = objCurrentRow["DESC1"].ToString().Trim();
-                    objDevice.FullDescription2 = objCurrentRow["DESC2"].ToString().Trim();
-                    objDevice.FullDescription3 = objCurrentRow["DESC3"].ToString().Trim();
-                    objDevice.FullDescription4 = objCurrentRow["DESC4"].ToString().Trim();
-                    objDevice.FullDescription5 = objCurrentRow["DESC5"].ToString().Trim();
+                    objDevice.FullDescription1 = PrepareFullDesc(objCurrentRow["DESC1"].ToString().Trim().Split('$'));
+                    objDevice.FullDescription2 = PrepareFullDesc(objCurrentRow["DESC2"].ToString().Trim().Split('$'));
+                    objDevice.FullDescription3 = PrepareFullDesc(objCurrentRow["DESC3"].ToString().Trim().Split('$'));
+                    objDevice.FullDescription4 = PrepareFullDesc(objCurrentRow["DESC4"].ToString().Trim().Split('$'));
+                    objDevice.FullDescription5 = PrepareFullDesc(objCurrentRow["DESC5"].ToString().Trim().Split('$'));
 
                     RDSDeviceSeriesList.Add(objDevice);
                 }
@@ -119,6 +120,23 @@ namespace ProjectMooladhara
                     SharedData.SelectedDevice = "AVR";
                     SharedData.objMainWindow.LBXSeries.ItemsSource = PrepareDeviceSeriesList("AVRDevices");
                 }
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message);
+            }
+        }
+
+        private static string PrepareFullDesc(string[] FullDesc)
+        {
+            try
+            {
+                StringBuilder objStringBuilder = new StringBuilder();
+                foreach(string stringDesc in FullDesc)
+                {
+                    objStringBuilder.AppendLine(stringDesc);
+                }
+                return objStringBuilder.ToString();
             }
             catch (Exception Ex)
             {

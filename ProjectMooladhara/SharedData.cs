@@ -26,6 +26,7 @@ namespace ProjectMooladhara
 
         private static string _SelectedDevice = null;
         private static string _SelectedDeviceSeries = null;
+        private static string _SelectedSeries = null;
 
         public static MainWindow objMainWindow
         {
@@ -166,6 +167,18 @@ namespace ProjectMooladhara
             set
             {
                 _SelectedDeviceSeries = value;
+            }
+        }
+
+        public static string SelectedSeries
+        {
+            get
+            {
+                return _SelectedSeries;
+            }
+            set
+            {
+                _SelectedSeries = value;
             }
         }
     }

@@ -89,10 +89,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ListConfigurationControl.xaml.cs">
+      <DependentUpon>ListConfigurationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BooleanConfigurationControl.xaml.cs">
+      <DependentUpon>BooleanConfigurationControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\WindowSettings.cs" />
     <Compile Include="DataFactory.cs" />
     <Compile Include="Devices.cs" />
     <Compile Include="DeviceSeries.cs" />
+    <Compile Include="Loaders.cs" />
     <Compile Include="ProgressDialog\ProgressDialog.xaml.cs" />
     <Compile Include="ProgressDialog\ProgressDialogCancellationExcpetion.cs" />
     <Compile Include="ProgressDialog\ProgressDialogContext.cs" />
@@ -101,6 +108,14 @@
     <Compile Include="ProjectCreation.cs" />
     <Compile Include="SharedData.cs" />
     <Compile Include="UILoadFunctions.cs" />
+    <Page Include="ListConfigurationControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BooleanConfigurationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Icons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +181,26 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <BlendEmbeddedFont Include="Fonts\Ubuntu-L.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
+    <BlendEmbeddedFont Include="Fonts\Ubuntu-LI.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
+    <BlendEmbeddedFont Include="Fonts\Ubuntu-M.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
+    <BlendEmbeddedFont Include="Fonts\Ubuntu-MI.ttf">
+      <IsSystemFont>True</IsSystemFont>
+      <All>True</All>
+      <AutoFill>True</AutoFill>
+    </BlendEmbeddedFont>
     <Resource Include="Icons\code-2x.png" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
