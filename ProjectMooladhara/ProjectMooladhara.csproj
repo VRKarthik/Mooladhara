@@ -110,6 +110,9 @@
     <Compile Include="ProjectWatcher.cs" />
     <Compile Include="SharedData.cs" />
     <Compile Include="SolutionArchitecture.cs" />
+    <Compile Include="Splash.xaml.cs">
+      <DependentUpon>Splash.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UILoadFunctions.cs" />
     <Page Include="ListConfigurationControl.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -138,6 +141,10 @@
     <Page Include="ProgressDialog\ProgressDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Splash.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Metro\Metro.MSControls.Core.Implicit.xaml">
       <Generator>MSBuild:Compile</Generator>

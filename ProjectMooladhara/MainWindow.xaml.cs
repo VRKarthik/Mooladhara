@@ -23,6 +23,28 @@ namespace ProjectMooladhara
         public MainWindow()
         {
             InitializeComponent();
+
+            App.splashScreen.AddMessage("Loading 1...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 2...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 3...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 4...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 5...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 6...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 7...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 8...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 9...");
+            Thread.Sleep(500);
+            App.splashScreen.AddMessage("Loading 10...");
+            Thread.Sleep(500);
+            App.splashScreen.LoadComplete();
         }
 
         #endregion Initialization
