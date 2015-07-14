@@ -17,7 +17,8 @@ namespace ProjectMooladhara
             try
             {
                 LoadConfigurations();
-                LoadProjectExplorer(); 
+                LoadProjectExplorer();
+                LoadFunctions();
                 ProjectWatcher objWatcher = new ProjectWatcher();
             }
             catch (Exception Ex)
@@ -147,6 +148,86 @@ namespace ProjectMooladhara
             catch(Exception Ex)
             {
                 throw new Exception(Ex.Message);
+            }
+        }
+
+        public static void LoadFunctions()
+        {
+            try
+            {
+                List<FunctionGroupItem> objFunctionGroups = new List<FunctionGroupItem>();
+
+                DataTable objFunctionUnitTable = DataFactory.GetDataTable("fu" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
+
+                foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='PER'"))
+                {
+                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
+
+                    DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
+
+                    foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
+                    {
+                        PeripheralMember objPeripheral = new PeripheralMember();
+                        objPeripheral.PeripheralName = objRow["FUNC_NAME"].ToString();
+                        objGroupItem.Functions.Add(objPeripheral);
+                    }
+                    objGroupItem.FunctionGroupName = "Peripherals";
+                    objFunctionGroups.Add(objGroupItem);
+                }
+
+                foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='DEV'"))
+                {
+                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
+
+                    DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
+
+                    foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
+                    {
+                        DeviceMember objDevice = new DeviceMember();
+                        objDevice.DeviceName = objRow["FUNC_NAME"].ToString();
+                        objGroupItem.Functions.Add(objDevice);
+                    }
+                    objGroupItem.FunctionGroupName = "Devices";
+                    objFunctionGroups.Add(objGroupItem);
+                }
+
+                foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='ACC'"))
+                {
+                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
+
+                    DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
+
+                    foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
+                    {
+                        AccessoriesMember objAccessories = new AccessoriesMember();
+                        objAccessories.AccessoriesName = objRow["FUNC_NAME"].ToString();
+                        objGroupItem.Functions.Add(objAccessories);
+                    }
+                    objGroupItem.FunctionGroupName = "Accessories";
+                    objFunctionGroups.Add(objGroupItem);
+                }
+
+                foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='INT'"))
+                {
+                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
+
+                    DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
+
+                    foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
+                    {
+                        InterruptMember objInterrupt = new InterruptMember();
+                        objInterrupt.InterruptName = objRow["FUNC_NAME"].ToString();
+                        objGroupItem.Functions.Add(objInterrupt);
+                    }
+                    objGroupItem.FunctionGroupName = "Interrupts";
+                    objFunctionGroups.Add(objGroupItem);
+                }
+
+                SharedData.objMainWindow.FunctionsExplorerTree.ItemsSource = objFunctionGroups;
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Can't load functions.\n" + Ex.Message);
             }
         }
     }

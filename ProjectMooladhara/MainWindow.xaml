@@ -273,7 +273,44 @@
 								</Grid>
 							</avalonDock:LayoutAnchorable>
 
-                            <avalonDock:LayoutAnchorable x:Name="TabFunctionsExplorer" Title="Functions" CanClose="False" CanHide="True" />
+                            <avalonDock:LayoutAnchorable x:Name="TabFunctionsExplorer" Title="Functions" CanClose="False" CanHide="True">
+								<Grid Background="White" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+									<TreeView Margin="4" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="FunctionsExplorerTree">
+										<TreeView.Resources>
+                                            <HierarchicalDataTemplate DataType="{x:Type local:FunctionGroupItem}" ItemsSource="{Binding Functions}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource FunctionGroupHeaderItem}" Margin="0,0,5,0" />
+										            <TextBlock FontWeight="Bold" Text="{Binding FunctionGroupName}" />
+										        </StackPanel>
+										    </HierarchicalDataTemplate>
+											<DataTemplate DataType="{x:Type local:PeripheralMember}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource PeripheralsItem}" Margin="0,0,5,0" />
+										            <TextBlock Text="{Binding PeripheralName}" />
+										        </StackPanel>
+										    </DataTemplate>
+											<DataTemplate DataType="{x:Type local:DeviceMember}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource DevicesItem}" Margin="0,0,5,0" />
+										            <TextBlock Text="{Binding DeviceName}" />
+										        </StackPanel>
+										    </DataTemplate>
+											<DataTemplate DataType="{x:Type local:AccessoriesMember}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource AccessoriesItem}" Margin="0,0,5,0" />
+										            <TextBlock Text="{Binding AccessoriesName}" />
+										        </StackPanel>
+										    </DataTemplate>
+											<DataTemplate DataType="{x:Type local:InterruptMember}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource InterruptsItem}" Margin="0,0,5,0" />
+										            <TextBlock Text="{Binding InterruptName}" />
+										        </StackPanel>
+										    </DataTemplate>
+										</TreeView.Resources>
+									</TreeView>
+								</Grid>
+							</avalonDock:LayoutAnchorable>
 
                             <avalonDock:LayoutAnchorable x:Name="TabVariablesExplorer" Title="Variables" CanClose="False" CanHide="True" />
                         </avalonDock:LayoutAnchorablePane>

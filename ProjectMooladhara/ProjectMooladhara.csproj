@@ -109,6 +109,7 @@
     <Compile Include="ProjectCreation.cs" />
     <Compile Include="ProjectWatcher.cs" />
     <Compile Include="SharedData.cs" />
+    <Compile Include="FunctionArchitecture.cs" />
     <Compile Include="SolutionArchitecture.cs" />
     <Compile Include="Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
