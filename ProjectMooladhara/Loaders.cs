@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace ProjectMooladhara
             try
             {
                 LoadConfigurations();
-                LoadProjectExplorer();
+                LoadProjectExplorer(); 
+                ProjectWatcher objWatcher = new ProjectWatcher();
             }
             catch (Exception Ex)
             {
@@ -29,8 +31,8 @@ namespace ProjectMooladhara
             try
             {
                 DataTable objConfigurationTable = DataFactory.GetDataTable("config" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
-                
-                foreach(DataRow objTempRow in objConfigurationTable.Select("TYPE='BOOL'"))
+
+                foreach (DataRow objTempRow in objConfigurationTable.Select("TYPE='BOOL'"))
                 {
                     BooleanConfigurationControl objBoolControl = new BooleanConfigurationControl();
                     objBoolControl.ConfigurationName.Content = objTempRow["CONFIG_NAME"].ToString().Trim();
@@ -49,7 +51,7 @@ namespace ProjectMooladhara
                     SharedData.objMainWindow.FrequenciesPanel.Children.Add(objListControl);
                 }
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
                 throw new Exception(Ex.Message);
             }
@@ -59,18 +61,90 @@ namespace ProjectMooladhara
         {
             try
             {
-                TreeViewItem objSolutionFolder = new TreeViewItem();
-                objSolutionFolder.Tag = SharedData.CurrentProjectSolutionPath;
-                objSolutionFolder.Header = "Project - " + SharedData.CurrentProjectName;
+                #region OldCode
+                //if (SharedData.objMainWindow.ProjectExplorerTree.HasItems == true)
+                //{
+                //    SharedData.objMainWindow.ProjectExplorerTree.Items.Clear();
+                //}
+                //else if (SharedData.objMainWindow.ProjectExplorerTree.HasItems == false)
+                //{
+                //    List<SolutionItem> Solutions = new List<SolutionItem>();
+                //    SolutionItem objRootSolution = new SolutionItem();
 
-                TreeViewItem objProjectFolder = new TreeViewItem();
-                objProjectFolder.Tag = SharedData.CurrentProjectSolutionPath;
-                objProjectFolder.Header = SharedData.CurrentProjectName;
+                //    objRootSolution.SolutionName = SharedData.CurrentProjectName;
+                //    objRootSolution.SolutionPath = SharedData.CurrentProjectSolutionPath;
 
-                objSolutionFolder.Items.Add(objProjectFolder);
-                SharedData.objMainWindow.ProjectExplorerTree.Items.Add(objSolutionFolder);
+                //    FolderMember SourceFolder = new FolderMember() { FolderName = "Source", FolderPath = SharedData.CurrentProjectSourcePath };
+                //    FolderMember ObjectFolder = new FolderMember() { FolderName = "Object", FolderPath = SharedData.CurrentProjectObjectPath };
+                //    FolderMember BinFolder = new FolderMember() { FolderName = "Bin", FolderPath = SharedData.CurrentProjectBinPath };
+
+                //    foreach (FileInfo objFile in new DirectoryInfo(SharedData.CurrentProjectSourcePath).GetFiles())
+                //    {
+                //        SourceFolder.Files.Add(new FileMember() { FileName = objFile.Name, FilePath = objFile.FullName });
+                //    }
+
+                //    foreach (FileInfo objFile in new DirectoryInfo(SharedData.CurrentProjectObjectPath).GetFiles())
+                //    {
+                //        ObjectFolder.Files.Add(new FileMember() { FileName = objFile.Name, FilePath = objFile.FullName });
+                //    }
+
+                //    foreach (FileInfo objFile in new DirectoryInfo(SharedData.CurrentProjectBinPath).GetFiles())
+                //    {
+                //        BinFolder.Files.Add(new FileMember() { FileName = objFile.Name, FilePath = objFile.FullName });
+                //    }
+
+                //    objRootSolution.Folders.Add(SourceFolder);
+                //    objRootSolution.Folders.Add(ObjectFolder);
+                //    objRootSolution.Folders.Add(BinFolder);
+
+                //    Solutions.Add(objRootSolution);
+
+                //    SharedData.objMainWindow.ProjectExplorerTree.ItemsSource = Solutions;
+                // }
+                #endregion
+
+                SharedData.objMainWindow.ProjectExplorerTree.ItemsSource = PrepareProjectFolders();
             }
             catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message);
+            }
+        }
+
+        private static List<SolutionItem> PrepareProjectFolders()
+        {
+            try
+            {
+                List<SolutionItem> Solutions = new List<SolutionItem>();
+                SolutionItem objRootSolution = new SolutionItem();
+
+                foreach (FileInfo objFile in new DirectoryInfo(SharedData.CurrentProjectSolutionPath).GetFiles())
+                {
+                    objRootSolution.SolutionName = objFile.Name;
+                    objRootSolution.SolutionPath = objFile.FullName;
+                }
+
+                foreach (DirectoryInfo objDirectory in new DirectoryInfo(SharedData.CurrentProjectWorkingPath).GetDirectories())
+                {
+                    FolderMember objFolderMember = new FolderMember();
+                    objFolderMember.FolderName = objDirectory.Name;
+                    objFolderMember.FolderPath = objDirectory.FullName;
+
+                    foreach (FileInfo objFile in objDirectory.GetFiles())
+                    {
+                        FileMember objFileMember = new FileMember();
+                        objFileMember.FileName = objFile.Name;
+                        objFileMember.FilePath = objFile.FullName;
+                        objFolderMember.Files.Add(objFileMember);
+                    }
+
+                    objRootSolution.Folders.Add(objFolderMember);
+                }
+                
+                Solutions.Add(objRootSolution);
+                return Solutions;
+            }
+            catch(Exception Ex)
             {
                 throw new Exception(Ex.Message);
             }

@@ -1,5 +1,7 @@
 ﻿using Fluent;
 using System;
+using System.ComponentModel;
+using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +13,11 @@ namespace ProjectMooladhara
     /// </summary>
     public partial class MainWindow : RibbonWindow
     {
+        #region Global
+
+
+        #endregion
+
         #region Initialization
 
         public MainWindow()
@@ -93,6 +100,7 @@ namespace ProjectMooladhara
         }
 
         #endregion
+        
 
         #endregion Events
     }

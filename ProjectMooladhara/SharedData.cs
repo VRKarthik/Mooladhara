@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ namespace ProjectMooladhara
         private static string _SelectedDevice = null;
         private static string _SelectedDeviceSeries = null;
         private static string _SelectedSeries = null;
+
+        private static FileSystemWatcher _FileSystemWatcher = null;
 
         public static MainWindow objMainWindow
         {
@@ -180,6 +183,12 @@ namespace ProjectMooladhara
             {
                 _SelectedSeries = value;
             }
+        }
+
+        public static FileSystemWatcher objFileSystemWatcher
+        {
+            get { return _FileSystemWatcher; }
+            set { _FileSystemWatcher = value; }
         }
     }
 }
