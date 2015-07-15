@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjectMooladhara.App" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAACAAIA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.BooleanConfigurationControl" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BooleanConfigurationControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.WindowSettings" Collapsed="true">
+    <Position X="16.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACCAAAQAAAAAKIAAAAAAIAhAAAAgAAAAACgAAAQA=</HashCode>
+      <FileName>Core\WindowSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.DataFactory" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ProjectMooladhara.DataFactory.DatabaseSelection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>DataFactory.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>DataFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.Devices" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAACAAAAAAAAAAABAAAAAAAQIAAAAAAA=</HashCode>
+      <FileName>Devices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.DeviceSeries" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAAAQ4wA=</HashCode>
+      <FileName>DeviceSeries.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.FunctionGroupItem" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FunctionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.FunctionItems" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FunctionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.PeripheralMember" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FunctionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.DeviceMember" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>FunctionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.AccessoriesMember" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>FunctionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.InterruptMember" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>FunctionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ListConfigurationControl" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ListConfigurationControl.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.Loaders" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAgAAAAAAA=</HashCode>
+      <FileName>Loaders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.MainWindow" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ProgressDialog" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAEAAAAAQAAACggAQAAAAAAAAAAAAAAAAAoAA=</HashCode>
+      <FileName>ProgressDialog\ProgressDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ProgressDialogCancellationExcpetion" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProgressDialog\ProgressDialogCancellationExcpetion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ProgressDialogContext" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABAAAAAAAAAAAAAAAIAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>ProgressDialog\ProgressDialogContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ProgressDialogResult" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAAAAAAQAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ProgressDialog\ProgressDialogResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ProgressDialogSettings" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACABAAAAAAAAAEAAAgAAAAAAAAAAAAAAAAEQAAA=</HashCode>
+      <FileName>ProgressDialog\ProgressDialogSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ProjectCreation" Collapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>ProjectCreation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.ProjectWatcher" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAICAAAAAAgAAAAAAAQAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>ProjectWatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.SharedData" Collapsed="true">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAgIAERKCAAEQIAgSAAIIAEmAYAAFChACAGEAAEA=</HashCode>
+      <FileName>SharedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.SolutionItem" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>SolutionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.FolderMember" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>SolutionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.FileMember" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAA=</HashCode>
+      <FileName>SolutionArchitecture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.Splash" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAQAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Splash.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjectMooladhara.UILoadFunctions" Collapsed="true">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAABAAAAIAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>UILoadFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.Properties.Resources" Collapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjectMooladhara.Properties.Settings" Collapsed="true">
+    <Position X="16.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ProjectMooladhara.ISplashScreen" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Splash.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
