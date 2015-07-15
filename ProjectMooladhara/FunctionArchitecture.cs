@@ -11,9 +11,21 @@ namespace ProjectMooladhara
     {
         public string FunctionGroupName { get; set; }
 
-        public ObservableCollection<FunctionItems> Functions { get; set; }
+        public ObservableCollection<List<FunctionSubGroupItem>> FunctionCategories { get; set; }
 
         public FunctionGroupItem()
+        {
+            this.FunctionCategories = new ObservableCollection<List<FunctionSubGroupItem>>();
+        }
+    }
+
+    public class FunctionSubGroupItem
+    {
+        public string FunctionSubGroupName { get; set; }
+
+        public ObservableCollection<FunctionItems> Functions { get; set; }
+
+        public FunctionSubGroupItem()
         {
             this.Functions = new ObservableCollection<FunctionItems>();
         }
