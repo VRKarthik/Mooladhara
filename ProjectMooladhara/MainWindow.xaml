@@ -277,10 +277,16 @@
 								<Grid Background="White" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
 									<TreeView Margin="4" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="FunctionsExplorerTree">
 										<TreeView.Resources>
-                                            <HierarchicalDataTemplate DataType="{x:Type local:FunctionGroupItem}" ItemsSource="{Binding Functions}">
+                                            <HierarchicalDataTemplate DataType="{x:Type local:FunctionGroupItem}" ItemsSource="{Binding FunctionCategories}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Background="DarkGray" Width="15" Height="15" Style="{StaticResource BoxRounded}" Margin="0,0,5,0" />
+										            <TextBlock FontWeight="Bold" Text="{Binding FunctionGroupName}" />
+										        </StackPanel>
+										    </HierarchicalDataTemplate>
+											<HierarchicalDataTemplate DataType="{x:Type local:FunctionSubGroupItem}" ItemsSource="{Binding Functions}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource BoxRounded}" Margin="0,0,5,0" />
-										            <TextBlock FontWeight="Bold" Text="{Binding FunctionGroupName}" />
+										            <TextBlock FontWeight="Bold" Text="{Binding FunctionSubGroupName}" />
 										        </StackPanel>
 										    </HierarchicalDataTemplate>
 											<DataTemplate DataType="{x:Type local:PeripheralMember}">

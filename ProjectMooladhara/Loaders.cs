@@ -156,72 +156,86 @@ namespace ProjectMooladhara
             try
             {
                 List<FunctionGroupItem> objFunctionGroups = new List<FunctionGroupItem>();
-
+                
                 DataTable objFunctionUnitTable = DataFactory.GetDataTable("fu" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
-
+                
+                FunctionGroupItem objPeripheralGroup = new FunctionGroupItem();
+                List<FunctionSubGroupItem> objPeripheralSubGroup = new List<FunctionSubGroupItem>();
                 foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='PER'"))
                 {
-                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
-
                     DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
+
+                    FunctionSubGroupItem objSubGroupItem = new FunctionSubGroupItem();
+                    objSubGroupItem.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
 
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
                         PeripheralMember objPeripheral = new PeripheralMember();
                         objPeripheral.PeripheralName = objRow["FUNC_NAME"].ToString();
-                        objGroupItem.Functions.Add(objPeripheral);
+                        objSubGroupItem.Functions.Add(objPeripheral);
                     }
-                    objGroupItem.FunctionGroupName = "Peripherals";
-                    objFunctionGroups.Add(objGroupItem);
+                    objPeripheralSubGroup.Add(objSubGroupItem);
                 }
+                objPeripheralGroup.FunctionCategories.Add(objPeripheralSubGroup);
 
+                FunctionGroupItem objDeviceGroup = new FunctionGroupItem();
+                List<FunctionSubGroupItem> objDeviceSubGroup = new List<FunctionSubGroupItem>();
                 foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='DEV'"))
                 {
-                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
-
                     DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
 
+                    FunctionSubGroupItem objSubGroupItem = new FunctionSubGroupItem();
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
                         DeviceMember objDevice = new DeviceMember();
                         objDevice.DeviceName = objRow["FUNC_NAME"].ToString();
-                        objGroupItem.Functions.Add(objDevice);
+                        objSubGroupItem.Functions.Add(objDevice);
                     }
-                    objGroupItem.FunctionGroupName = "Devices";
-                    objFunctionGroups.Add(objGroupItem);
+                    objSubGroupItem.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
+                    objDeviceSubGroup.Add(objSubGroupItem);
                 }
+                objDeviceGroup.FunctionCategories.Add(objDeviceSubGroup);
 
+                FunctionGroupItem objAccessoriesGroup = new FunctionGroupItem();
+                List<FunctionSubGroupItem> objAccessoriesSubGroup = new List<FunctionSubGroupItem>();
                 foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='ACC'"))
                 {
-                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
-
                     DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
 
+                    FunctionSubGroupItem objSubGroupItem = new FunctionSubGroupItem();
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
-                        AccessoriesMember objAccessories = new AccessoriesMember();
-                        objAccessories.AccessoriesName = objRow["FUNC_NAME"].ToString();
-                        objGroupItem.Functions.Add(objAccessories);
+                        DeviceMember objDevice = new DeviceMember();
+                        objDevice.DeviceName = objRow["FUNC_NAME"].ToString();
+                        objSubGroupItem.Functions.Add(objDevice);
                     }
-                    objGroupItem.FunctionGroupName = "Accessories";
-                    objFunctionGroups.Add(objGroupItem);
+                    objSubGroupItem.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
+                    objAccessoriesSubGroup.Add(objSubGroupItem);
                 }
+                objAccessoriesGroup.FunctionCategories.Add(objAccessoriesSubGroup);
 
+                FunctionGroupItem objInterruptGroup = new FunctionGroupItem();
+                List<FunctionSubGroupItem> objInterruptSubGroup = new List<FunctionSubGroupItem>();
                 foreach (DataRow objTempRow in objFunctionUnitTable.Select("FUN_ID='INT'"))
                 {
-                    FunctionGroupItem objGroupItem = new FunctionGroupItem();
-
                     DataTable objFunctionsTable = DataFactory.GetDataTable("fun" + SharedData.SelectedSeries, DataFactory.DatabaseSelection.DeviceDatabase);
 
+                    FunctionSubGroupItem objSubGroupItem = new FunctionSubGroupItem();
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
-                        InterruptMember objInterrupt = new InterruptMember();
-                        objInterrupt.InterruptName = objRow["FUNC_NAME"].ToString();
-                        objGroupItem.Functions.Add(objInterrupt);
+                        DeviceMember objDevice = new DeviceMember();
+                        objDevice.DeviceName = objRow["FUNC_NAME"].ToString();
+                        objSubGroupItem.Functions.Add(objDevice);
                     }
-                    objGroupItem.FunctionGroupName = "Interrupts";
-                    objFunctionGroups.Add(objGroupItem);
+                    objSubGroupItem.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
+                    objInterruptSubGroup.Add(objSubGroupItem);
                 }
+                objInterruptGroup.FunctionCategories.Add(objInterruptSubGroup);
+
+                objFunctionGroups.Add(objPeripheralGroup);
+                objFunctionGroups.Add(objDeviceGroup);
+                objFunctionGroups.Add(objAccessoriesGroup);
+                objFunctionGroups.Add(objInterruptGroup);
 
                 SharedData.objMainWindow.FunctionsExplorerTree.ItemsSource = objFunctionGroups;
             }
