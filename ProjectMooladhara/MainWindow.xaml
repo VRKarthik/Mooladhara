@@ -218,12 +218,6 @@
 														<StackPanel x:Name="FrequenciesPanel" Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" />
 													</GroupBox>
 												</Expander>
-
-												<Expander IsExpanded="True" Header="Ports and Devices" Width="Auto" Height="Auto" HorizontalAlignment="Stretch">
-													<GroupBox x:Name="GroupPortsAndDevices" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="10">
-														<StackPanel x:Name="PortsAndDevicesPanel" Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" />
-													</GroupBox>
-												</Expander>
 											</StackPanel>
 										</ScrollViewer>
 									</Grid>
@@ -231,8 +225,33 @@
 							</avalonDock:LayoutAnchorable>
 
                             <avalonDock:LayoutAnchorable x:Name="TabTreeView" Title="Design View" CanClose="False" CanHide="False">
-                                <TreeView x:Name="ProgramTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
-                                    <TreeViewItem Header="Program Starting" />
+                                <TreeView x:Name="ProgramTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" SelectedItemChanged="TreeView_SelectionChanged">
+                                    <TreeView.Resources>
+										    <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+										            <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+										        </StackPanel>
+										    </HierarchicalDataTemplate>
+										    <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeFlowControl}" Margin="0,0,5,0" />
+										            <TextBlock Text="{Binding FlowControlName}" />
+										        </StackPanel>
+										    </HierarchicalDataTemplate>
+											<DataTemplate DataType="{x:Type local:VariableProperties}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeVariable}" Margin="0,0,5,0" />
+										            <TextBlock Text="{Binding VariableName}" />
+										        </StackPanel>
+										    </DataTemplate>
+											<DataTemplate DataType="{x:Type local:MacroProperties}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeMacro}" Margin="0,0,5,0" />
+										            <TextBlock Text="{Binding MacroName}" />
+										        </StackPanel>
+										    </DataTemplate>
+										</TreeView.Resources>
                                 </TreeView>
                             </avalonDock:LayoutAnchorable>
 
@@ -243,7 +262,7 @@
                         <avalonDock:LayoutAnchorablePane x:Name="AnchorablePaneTop">
 
                             <avalonDock:LayoutAnchorable x:Name="TabProperties" Title="Properties" CanClose="False" CanHide="True">
-                                <xctk:PropertyGrid />
+                                <xctk:PropertyGrid Name="PropertiesGrid" />
                             </avalonDock:LayoutAnchorable>
 							
                             <avalonDock:LayoutAnchorable x:Name="TabProjectExplorer" Title="Projects" CanClose="False" CanHide="True">
@@ -293,24 +312,80 @@
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource PeripheralsItem}" Margin="0,0,5,0" />
 										            <TextBlock Text="{Binding PeripheralName}" />
+													<StackPanel.ToolTip>
+														<ToolTip Width="350" Height="Auto">
+															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
+																<StackPanel Margin="0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																	<ContentControl Style="{StaticResource FunctionToolTipHeading}" Width="15" Height="15"/>
+																    <TextBlock TextWrapping="Wrap" Width="Auto" HorizontalAlignment="Stretch" FontWeight="Bold" FontSize="14" Margin="5,0,0,0" Text="{Binding Path=Syntax}" />
+																</StackPanel>
+
+																<StackPanel Margin="0,5,0,0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																    <TextBlock TextWrapping="Wrap" Width="Auto" Margin="5,0,0,0" HorizontalAlignment="Stretch" FontSize="12" Text="{Binding Path=Description}" />
+																</StackPanel>
+															</StackPanel>
+														</ToolTip>
+													</StackPanel.ToolTip>
 										        </StackPanel>
 										    </DataTemplate>
 											<DataTemplate DataType="{x:Type local:DeviceMember}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource DevicesItem}" Margin="0,0,5,0" />
 										            <TextBlock Text="{Binding DeviceName}" />
+													<StackPanel.ToolTip>
+														<ToolTip Width="350" Height="Auto">
+															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
+																<StackPanel Margin="0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																	<ContentControl Style="{StaticResource FunctionToolTipHeading}" Width="15" Height="15"/>
+																    <TextBlock TextWrapping="Wrap" Width="Auto" HorizontalAlignment="Stretch" FontWeight="Bold" FontSize="14" Margin="5,0,0,0" Text="{Binding Path=Syntax}" />
+																</StackPanel>
+
+																<StackPanel Margin="0,5,0,0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																    <TextBlock TextWrapping="Wrap" Width="Auto" Margin="5,0,0,0" HorizontalAlignment="Stretch" FontSize="12" Text="{Binding Path=Description}" />
+																</StackPanel>
+															</StackPanel>
+														</ToolTip>
+													</StackPanel.ToolTip>
 										        </StackPanel>
 										    </DataTemplate>
 											<DataTemplate DataType="{x:Type local:AccessoriesMember}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource AccessoriesItem}" Margin="0,0,5,0" />
 										            <TextBlock Text="{Binding AccessoriesName}" />
+													<StackPanel.ToolTip>
+														<ToolTip Width="350" Height="Auto">
+															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
+																<StackPanel Margin="0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																	<ContentControl Style="{StaticResource FunctionToolTipHeading}" Width="15" Height="15"/>
+																    <TextBlock TextWrapping="Wrap" Width="Auto" HorizontalAlignment="Stretch" FontWeight="Bold" FontSize="14" Margin="5,0,0,0" Text="{Binding Path=Syntax}" />
+																</StackPanel>
+
+																<StackPanel Margin="0,5,0,0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																    <TextBlock TextWrapping="Wrap" Width="Auto" Margin="5,0,0,0" HorizontalAlignment="Stretch" FontSize="12" Text="{Binding Path=Description}" />
+																</StackPanel>
+															</StackPanel>
+														</ToolTip>
+													</StackPanel.ToolTip>
 										        </StackPanel>
 										    </DataTemplate>
 											<DataTemplate DataType="{x:Type local:InterruptMember}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource InterruptsItem}" Margin="0,0,5,0" />
 										            <TextBlock Text="{Binding InterruptName}" />
+													<StackPanel.ToolTip>
+														<ToolTip Width="350" Height="Auto">
+															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
+																<StackPanel Margin="0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																	<ContentControl Style="{StaticResource FunctionToolTipHeading}" Width="15" Height="15"/>
+																    <TextBlock TextWrapping="Wrap" Width="Auto" HorizontalAlignment="Stretch" FontWeight="Bold" FontSize="14" Margin="5,0,0,0" Text="{Binding Path=Syntax}" />
+																</StackPanel>
+
+																<StackPanel Margin="0,5,0,0" Orientation="Horizontal" Width="Auto" HorizontalAlignment="Stretch">
+																    <TextBlock TextWrapping="Wrap" Width="Auto" Margin="5,0,0,0" HorizontalAlignment="Stretch" FontSize="12" Text="{Binding Path=Description}" />
+																</StackPanel>
+															</StackPanel>
+														</ToolTip>
+													</StackPanel.ToolTip>
 										        </StackPanel>
 										    </DataTemplate>
 										</TreeView.Resources>

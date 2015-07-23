@@ -1,6 +1,7 @@
 ﻿using Fluent;
 using System;
 using System.ComponentModel;
+using System.Data;
 using System.IO;
 using System.Threading;
 using System.Windows;
@@ -122,7 +123,23 @@ namespace ProjectMooladhara
         }
 
         #endregion
-        
+
+        #region TreeView
+
+        private void TreeView_SelectionChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            try
+            {
+                PropertiesGrid.SelectedObject = ProgramTree.SelectedItem;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        #endregion TreeView
+
 
         #endregion Events
     }

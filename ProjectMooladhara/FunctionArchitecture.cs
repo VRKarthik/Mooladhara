@@ -36,20 +36,36 @@ namespace ProjectMooladhara
     public class PeripheralMember : FunctionItems
     {
         public string PeripheralName { get; set; }
+
+        public string Syntax { get; set; }
+
+        public string Description { get; set; }
     }
 
     public class DeviceMember : FunctionItems
     {
         public string DeviceName { get; set; }
+
+        public string Syntax { get; set; }
+
+        public string Description { get; set; }
     }
 
     public class AccessoriesMember : FunctionItems
     {
         public string AccessoriesName { get; set; }
+
+        public string Syntax { get; set; }
+
+        public string Description { get; set; }
     }
 
     public class InterruptMember : FunctionItems
     {
         public string InterruptName { get; set; }
+
+        public string Syntax { get; set; }
+
+        public string Description { get; set; }
     }
 }

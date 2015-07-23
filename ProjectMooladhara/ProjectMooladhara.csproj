@@ -90,6 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MacroProperties.cs" />
+    <Compile Include="VariableProperties.cs" />
+    <Compile Include="FlowControlProperties.cs" />
+    <Compile Include="FunctionProperties.cs" />
     <Compile Include="ListConfigurationControl.xaml.cs">
       <DependentUpon>ListConfigurationControl.xaml</DependentUpon>
     </Compile>
