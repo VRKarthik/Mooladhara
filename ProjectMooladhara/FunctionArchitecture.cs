@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,41 +32,22 @@ namespace ProjectMooladhara
         }
     }
 
-    public class FunctionItems { }
-
-    public class PeripheralMember : FunctionItems
+    public class FunctionItems
     {
-        public string PeripheralName { get; set; }
+        public string FunctionItemName { get; set; }
 
         public string Syntax { get; set; }
 
         public string Description { get; set; }
+
+        public DataRow SourceRow { get; set; }
     }
 
-    public class DeviceMember : FunctionItems
-    {
-        public string DeviceName { get; set; }
+    public class PeripheralMember : FunctionItems { }
 
-        public string Syntax { get; set; }
+    public class DeviceMember : FunctionItems { }
 
-        public string Description { get; set; }
-    }
+    public class AccessoriesMember : FunctionItems { }
 
-    public class AccessoriesMember : FunctionItems
-    {
-        public string AccessoriesName { get; set; }
-
-        public string Syntax { get; set; }
-
-        public string Description { get; set; }
-    }
-
-    public class InterruptMember : FunctionItems
-    {
-        public string InterruptName { get; set; }
-
-        public string Syntax { get; set; }
-
-        public string Description { get; set; }
-    }
+    public class InterruptMember : FunctionItems { }
 }

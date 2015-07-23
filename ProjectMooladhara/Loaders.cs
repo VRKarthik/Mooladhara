@@ -22,6 +22,8 @@ namespace ProjectMooladhara
                 LoadFunctions();
 
                 ProjectWatcher objWatcher = new ProjectWatcher();
+
+                LoadMainFunction();
             }
             catch (Exception Ex)
             {
@@ -171,9 +173,10 @@ namespace ProjectMooladhara
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
                         PeripheralMember objPeripheral = new PeripheralMember();
-                        objPeripheral.PeripheralName = objRow["FUNC_NAME"].ToString();
+                        objPeripheral.FunctionItemName = objRow["FUNC_NAME"].ToString();
                         objPeripheral.Syntax = objRow["SYNTAX"].ToString();
                         objPeripheral.Description = AssignDescription(objRow["DESC"].ToString());
+                        objPeripheral.SourceRow = objRow;
                         objPeripheralSubGroup.Functions.Add(objPeripheral);
                     }
                     objPeripheralSubGroup.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
@@ -190,9 +193,10 @@ namespace ProjectMooladhara
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
                         DeviceMember objDevice = new DeviceMember();
-                        objDevice.DeviceName = objRow["FUNC_NAME"].ToString();
+                        objDevice.FunctionItemName = objRow["FUNC_NAME"].ToString();
                         objDevice.Syntax = objRow["SYNTAX"].ToString();
                         objDevice.Description = AssignDescription(objRow["DESC"].ToString());
+                        objDevice.SourceRow = objRow;
                         objDeviceSubGroup.Functions.Add(objDevice);
                     }
                     objDeviceSubGroup.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
@@ -209,9 +213,10 @@ namespace ProjectMooladhara
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
                         AccessoriesMember objAccessory = new AccessoriesMember();
-                        objAccessory.AccessoriesName = objRow["FUNC_NAME"].ToString();
+                        objAccessory.FunctionItemName = objRow["FUNC_NAME"].ToString();
                         objAccessory.Syntax = objRow["SYNTAX"].ToString();
                         objAccessory.Description = AssignDescription(objRow["DESC"].ToString());
+                        objAccessory.SourceRow = objRow;
                         objAccessoriesSubGroup.Functions.Add(objAccessory);
                     }
                     objAccessoriesSubGroup.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
@@ -228,9 +233,10 @@ namespace ProjectMooladhara
                     foreach (DataRow objRow in objFunctionsTable.Select("DEV_ID='" + objTempRow["DEV_ID"].ToString().Trim() + "'"))
                     {
                         InterruptMember objInterrupt = new InterruptMember();
-                        objInterrupt.InterruptName = objRow["FUNC_NAME"].ToString();
+                        objInterrupt.FunctionItemName = objRow["FUNC_NAME"].ToString();
                         objInterrupt.Syntax = objRow["SYNTAX"].ToString();
                         objInterrupt.Description = AssignDescription(objRow["DESC"].ToString());
+                        objInterrupt.SourceRow = objRow;
                         objInterruptSubGroup.Functions.Add(objInterrupt);
                     }
                     objInterruptSubGroup.FunctionSubGroupName = objTempRow["NAME"].ToString().ToUpperInvariant();
@@ -243,6 +249,30 @@ namespace ProjectMooladhara
                 objFunctionGroups.Add(objInterruptGroup);
 
                 SharedData.objMainWindow.FunctionsExplorerTree.ItemsSource = objFunctionGroups;
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Can't load functions.\n" + Ex.Message);
+            }
+        }
+
+        public static void LoadMainFunction()
+        {
+            try
+            {
+                SharedData.objMainWindow.ProgramTree.Items.Add(new MainFunctionProperties());
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Can't load functions.\n" + Ex.Message);
+            }
+        }
+
+        public static void LoadInterruptFunction()
+        {
+            try
+            {
+                SharedData.objMainWindow.ProgramTree.Items.Add(new InterruptFunctionProperties());
             }
             catch (Exception Ex)
             {
@@ -265,38 +295,6 @@ namespace ProjectMooladhara
             {
                 throw new Exception(Ex.Message);
             }
-        }
-
-        public static FunctionProperties LoadProperties(int index)
-        {
-            objFunction = new FunctionProperties();
-            DataTable objTable = DataFactory.GetDataTable("FUN16F884", DataFactory.DatabaseSelection.DeviceDatabase);
-
-            objFunction.Argument1DataType = objTable.Rows[index]["ARG1_DATATYPE"].ToString();
-            objFunction.Argument1DefaultValue = objTable.Rows[index]["ARG1_DEFAULT"].ToString();
-            objFunction.Argument1Name = objTable.Rows[index]["ARG1_NAME"].ToString();
-            objFunction.Argument1Options = objTable.Rows[index]["ARG1_OPTIONS"].ToString();
-
-            objFunction.Argument2DataType = objTable.Rows[index]["ARG2_DATATYPE"].ToString();
-            objFunction.Argument2DefaultValue = objTable.Rows[index]["ARG2_DEFAULT"].ToString();
-            objFunction.Argument2Name = objTable.Rows[index]["ARG2_NAME"].ToString();
-            objFunction.Argument2Options = objTable.Rows[index]["ARG2_OPTIONS"].ToString();
-
-            objFunction.Argument3DataType = objTable.Rows[index]["ARG3_DATATYPE"].ToString();
-            objFunction.Argument3DefaultValue = objTable.Rows[index]["ARG3_DEFAULT"].ToString();
-            objFunction.Argument3Name = objTable.Rows[index]["ARG3_NAME"].ToString();
-            objFunction.Argument3Options = objTable.Rows[index]["ARG3_OPTIONS"].ToString();
-
-            objFunction.Argument4DataType = objTable.Rows[index]["ARG4_DATATYPE"].ToString();
-            objFunction.Argument4DefaultValue = objTable.Rows[index]["ARG4_DEFAULT"].ToString();
-            objFunction.Argument4Name = objTable.Rows[index]["ARG4_NAME"].ToString();
-            objFunction.Argument4Options = objTable.Rows[index]["ARG4_OPTIONS"].ToString();
-
-            objFunction.Description = objTable.Rows[index]["DESC"].ToString();
-            objFunction.Syntax = objTable.Rows[index]["SYNTAX"].ToString();
-            objFunction.FunctionName = objTable.Rows[index]["FUNC_NAME"].ToString();
-            objFunction.ReturnType = objTable.Rows[index]["RET_TYPE"].ToString();
-            return objFunction;
         }
     }
 }

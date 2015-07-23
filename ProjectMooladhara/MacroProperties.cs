@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ProjectMooladhara
 {
     [DisplayName("Macro Properties")]
-    public class MacroProperties
+    public class MacroProperties : FunctionWithProperties
     {
         //General
         [Category("General")]

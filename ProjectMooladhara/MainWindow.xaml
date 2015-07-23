@@ -227,13 +227,25 @@
                             <avalonDock:LayoutAnchorable x:Name="TabTreeView" Title="Design View" CanClose="False" CanHide="False">
                                 <TreeView x:Name="ProgramTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" SelectedItemChanged="TreeView_SelectionChanged">
                                     <TreeView.Resources>
-										    <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}">
+											<HierarchicalDataTemplate DataType="{x:Type local:MainFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
 										            <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
 										        </StackPanel>
 										    </HierarchicalDataTemplate>
-										    <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}">
+											<HierarchicalDataTemplate DataType="{x:Type local:InterruptFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+										            <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+										        </StackPanel>
+										    </HierarchicalDataTemplate>
+										    <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+										        <StackPanel Orientation="Horizontal">
+										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+										            <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+										        </StackPanel>
+										    </HierarchicalDataTemplate>
+										    <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource TreeFlowControl}" Margin="0,0,5,0" />
 										            <TextBlock Text="{Binding FlowControlName}" />
@@ -294,7 +306,7 @@
 
                             <avalonDock:LayoutAnchorable x:Name="TabFunctionsExplorer" Title="Functions" CanClose="False" CanHide="True">
 								<Grid Background="White" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
-									<TreeView Margin="4" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="FunctionsExplorerTree">
+									<TreeView ContextMenu="{Binding FunctionContext}" Margin="4" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="FunctionsExplorerTree">
 										<TreeView.Resources>
                                             <HierarchicalDataTemplate DataType="{x:Type local:FunctionGroupItem}" ItemsSource="{Binding FunctionCategories}">
 										        <StackPanel Orientation="Horizontal">
@@ -311,7 +323,7 @@
 											<DataTemplate DataType="{x:Type local:PeripheralMember}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource PeripheralsItem}" Margin="0,0,5,0" />
-										            <TextBlock Text="{Binding PeripheralName}" />
+										            <TextBlock Text="{Binding FunctionItemName}" />
 													<StackPanel.ToolTip>
 														<ToolTip Width="350" Height="Auto">
 															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
@@ -326,12 +338,26 @@
 															</StackPanel>
 														</ToolTip>
 													</StackPanel.ToolTip>
+													<StackPanel.ContextMenu>
+														<ContextMenu StaysOpen="true" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light">
+														  <MenuItem Header="Add to main program" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToProgram}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														  <MenuItem Header="Add to interrupt" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToInterrupt}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														</ContextMenu>
+													</StackPanel.ContextMenu>
 										        </StackPanel>
 										    </DataTemplate>
 											<DataTemplate DataType="{x:Type local:DeviceMember}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource DevicesItem}" Margin="0,0,5,0" />
-										            <TextBlock Text="{Binding DeviceName}" />
+										            <TextBlock Text="{Binding FunctionItemName}" />
 													<StackPanel.ToolTip>
 														<ToolTip Width="350" Height="Auto">
 															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
@@ -346,12 +372,26 @@
 															</StackPanel>
 														</ToolTip>
 													</StackPanel.ToolTip>
+													<StackPanel.ContextMenu>
+														<ContextMenu StaysOpen="true" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light">
+														  <MenuItem Header="Add to main program" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToProgram}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														  <MenuItem Header="Add to interrupt" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToInterrupt}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														</ContextMenu>
+													</StackPanel.ContextMenu>
 										        </StackPanel>
 										    </DataTemplate>
 											<DataTemplate DataType="{x:Type local:AccessoriesMember}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource AccessoriesItem}" Margin="0,0,5,0" />
-										            <TextBlock Text="{Binding AccessoriesName}" />
+										            <TextBlock Text="{Binding FunctionItemName}" />
 													<StackPanel.ToolTip>
 														<ToolTip Width="350" Height="Auto">
 															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
@@ -366,12 +406,26 @@
 															</StackPanel>
 														</ToolTip>
 													</StackPanel.ToolTip>
+													<StackPanel.ContextMenu>
+														<ContextMenu StaysOpen="true" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light">
+														  <MenuItem Header="Add to main program" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToProgram}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														  <MenuItem Header="Add to interrupt" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToInterrupt}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														</ContextMenu>
+													</StackPanel.ContextMenu>
 										        </StackPanel>
 										    </DataTemplate>
 											<DataTemplate DataType="{x:Type local:InterruptMember}">
 										        <StackPanel Orientation="Horizontal">
 										            <ContentControl Width="15" Height="15" Style="{StaticResource InterruptsItem}" Margin="0,0,5,0" />
-										            <TextBlock Text="{Binding InterruptName}" />
+										            <TextBlock Text="{Binding FunctionItemName}" />
 													<StackPanel.ToolTip>
 														<ToolTip Width="350" Height="Auto">
 															<StackPanel Orientation="Vertical" Margin="5,0,0,0">
@@ -386,6 +440,20 @@
 															</StackPanel>
 														</ToolTip>
 													</StackPanel.ToolTip>
+													<StackPanel.ContextMenu>
+														<ContextMenu StaysOpen="true" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light">
+														  <MenuItem Header="Add to main program" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToProgram}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														  <MenuItem Header="Add to interrupt" Click="ContextMenuItem_Click">
+															<MenuItem.Icon>
+																<ContentControl Style="{StaticResource AddToInterrupt}" Width="15" Height="15"/>
+															</MenuItem.Icon>
+														  </MenuItem>
+														</ContextMenu>
+													</StackPanel.ContextMenu>
 										        </StackPanel>
 										    </DataTemplate>
 										</TreeView.Resources>

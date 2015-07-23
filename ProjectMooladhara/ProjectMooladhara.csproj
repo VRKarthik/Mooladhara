@@ -90,7 +90,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FunctionWithProperties.cs" />
+    <Compile Include="InterruptFunctionProperties.cs" />
+    <Compile Include="MainFunctionProperties.cs" />
     <Compile Include="MacroProperties.cs" />
+    <Compile Include="PropertyFactory.cs" />
     <Compile Include="VariableProperties.cs" />
     <Compile Include="FlowControlProperties.cs" />
     <Compile Include="FunctionProperties.cs" />

@@ -140,6 +140,41 @@ namespace ProjectMooladhara
 
         #endregion TreeView
 
+        #region ContextMenu
+
+        private void ContextMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (((System.Windows.Controls.MenuItem)sender).Header.ToString().Trim() == "Add to main program")
+                {
+                    if (ProgramTree.SelectedItem != null)
+                    {
+                        if (ProgramTree.SelectedItem.GetType().ToString().Trim() == "ProjectMooladhara.MainFunctionProperties")
+                        {
+                            FunctionProperties objFunction = PropertyFactory.GetFunctionWithProperties(((FunctionItems)FunctionsExplorerTree.SelectedItem).SourceRow);
+                            ((MainFunctionProperties)ProgramTree.SelectedItem).FunctionWithPropertiesCollection.Add(objFunction);
+                        }
+                        else
+                        {
+                            FunctionProperties objFunction = PropertyFactory.GetFunctionWithProperties(((FunctionItems)FunctionsExplorerTree.SelectedItem).SourceRow);
+                            ((FunctionProperties)ProgramTree.SelectedItem).FunctionWithPropertiesCollection.Add(objFunction);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a node in designer.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        #endregion ContextMenu
+
 
         #endregion Events
     }

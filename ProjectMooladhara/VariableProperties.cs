@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ProjectMooladhara
 {
     [DisplayName("Variable Properties")]
-    public class VariableProperties
+    public class VariableProperties : FunctionWithProperties
     {
         //General
         [Category("General")]

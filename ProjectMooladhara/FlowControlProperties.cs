@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ProjectMooladhara
 {
     [DisplayName("Flow Control Properties")]
-    public class FlowControlProperties
+    public class FlowControlProperties : FunctionWithProperties
     {
         //General
         [Category("General")]
