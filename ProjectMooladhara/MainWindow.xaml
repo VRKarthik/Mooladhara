@@ -228,13 +228,16 @@
                                 <Grid Margin="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="5" />
+                                        <ColumnDefinition Width="2" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
-										<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
-											<TextBlock Margin="4,4,4,0" Name="TBLProgramTreeTitle" Text="Main function - starting point of the program." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-											<TextBlock Margin="4,0,4,0" Name="TBLProgramTreeDescription" Text="Add fuctions, variables, control statements to start program." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+										<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
+											<ContentControl Width="46" Height="46" Style="{StaticResource ProgramTreeIcon}" Margin="4,0,0,0" />
+											<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
+												<TextBlock Margin="4,4,4,0" Name="TBLProgramTreeTitle" Text="Main function - starting point of the program." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+												<TextBlock Margin="4,0,4,0" Name="TBLProgramTreeDescription" Text="Add fuctions, variables, control statements to start program." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+											</StackPanel>
 										</StackPanel>
                                         <TreeView x:Name="ProgramTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
                                             <TreeView.Resources>
@@ -289,9 +292,12 @@
 										</GridSplitter.Style>
 									</GridSplitter>
                                     <Grid Grid.Column="2" HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
-										<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
-											<TextBlock Margin="4,4,4,0" Name="TBLInterruptTreeTitle" Text="Interrupt routine - starting point of the interrupt." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-											<TextBlock Margin="4,0,4,0" Name="TBLInterruptTreeDescription" Text="Add fuctions, variables, control statements to start interrupt." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+										<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
+											<ContentControl Width="46" Height="46" Style="{StaticResource InterruptTreeIcon}" Margin="4,0,0,0" />
+											<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
+												<TextBlock Margin="4,4,4,0" Name="TBLInterruptTreeTitle" Text="Interrupt routine - starting point of the interrupt." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+												<TextBlock Margin="4,0,4,0" Name="TBLInterruptTreeDescription" Text="Add fuctions, variables, control statements to start interrupt." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+											</StackPanel>
 										</StackPanel>
                                         <TreeView x:Name="InterruptTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
                                             <TreeView.Resources>

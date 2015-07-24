@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace ProjectMooladhara
                 objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
                 objFunction.Argument1Name = objRow["ARG1_NAME"].ToString();
                 objFunction.Argument1Options = objRow["ARG1_OPTIONS"].ToString();
+                objFunction.Argument1UserValue = GetAndAssignCollectionFromOptions(objRow["ARG1_OPTIONS"].ToString());
 
                 objFunction.Argument2DataType = objRow["ARG2_DATATYPE"].ToString();
                 objFunction.Argument2DefaultValue = objRow["ARG2_DEFAULT"].ToString();
@@ -42,7 +44,33 @@ namespace ProjectMooladhara
                 objFunction.ReturnType = objRow["RET_TYPE"].ToString();
                 return objFunction;
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message);
+            }
+        }
+
+        private static ObservableCollection<string> GetAndAssignCollectionFromOptions(string Options)
+        {
+            try
+            {
+                ObservableCollection<string> objCollection = new ObservableCollection<string>();
+
+                if (Options.Contains(','))
+                {
+                    foreach (string stringOption in Options.Split(','))
+                    {
+                        objCollection.Add(stringOption);
+                    }
+                }
+                else
+                {
+                    objCollection.Add(Options);
+                }
+
+                return objCollection;
+            }
+            catch (Exception Ex)
             {
                 throw new Exception(Ex.Message);
             }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace ProjectMooladhara
 {
@@ -61,7 +63,7 @@ namespace ProjectMooladhara
         [Category("Argument 1")]
         [DisplayName("ARG-1 Value")]
         [Description("Value from user input for Argument 1")]
-        public string Argument1UserValue { get; set; }
+        public ObservableCollection<string> Argument1UserValue { get; set; }
 
 
 

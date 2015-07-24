@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="ProjectMooladhara.App" Collapsed="true">
     <Position X="9.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -23,13 +23,6 @@
   </Class>
   <Class Name="ProjectMooladhara.DataFactory" Collapsed="true">
     <Position X="13.25" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="ProjectMooladhara.DataFactory.DatabaseSelection" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>DataFactory.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>DataFactory.cs</FileName>
@@ -52,42 +45,42 @@
   <Class Name="ProjectMooladhara.FunctionGroupItem" Collapsed="true">
     <Position X="13.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>FunctionArchitecture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjectMooladhara.FunctionItems" Collapsed="true">
     <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAwAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionArchitecture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjectMooladhara.PeripheralMember" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionArchitecture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjectMooladhara.DeviceMember" Collapsed="true">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionArchitecture.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjectMooladhara.AccessoriesMember" Collapsed="true">
+  <Class Name="ProjectMooladhara.AccessoriesMember">
     <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionArchitecture.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjectMooladhara.InterruptMember" Collapsed="true">
     <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FunctionArchitecture.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -101,14 +94,14 @@
   <Class Name="ProjectMooladhara.Loaders" Collapsed="true">
     <Position X="16.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>kAAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAgAAAAAAA=</HashCode>
+      <HashCode>kAACAAAAAAAAAQAAAABAgAAAAAAAAAAABAggAAAAAAA=</HashCode>
       <FileName>Loaders.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjectMooladhara.MainWindow" Collapsed="true">
     <Position X="9.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAEABAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
