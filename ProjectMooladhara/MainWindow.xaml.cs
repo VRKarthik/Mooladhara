@@ -1,8 +1,5 @@
 ﻿using Fluent;
 using System;
-using System.ComponentModel;
-using System.Data;
-using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,11 +11,6 @@ namespace ProjectMooladhara
     /// </summary>
     public partial class MainWindow : RibbonWindow
     {
-        #region Global
-
-
-        #endregion
-
         #region Initialization
 
         public MainWindow()
@@ -34,16 +26,6 @@ namespace ProjectMooladhara
             App.splashScreen.AddMessage("Loading 4...");
             Thread.Sleep(100);
             App.splashScreen.AddMessage("Loading 5...");
-            Thread.Sleep(100);
-            App.splashScreen.AddMessage("Loading 6...");
-            Thread.Sleep(100);
-            App.splashScreen.AddMessage("Loading 7...");
-            Thread.Sleep(100);
-            App.splashScreen.AddMessage("Loading 8...");
-            Thread.Sleep(100);
-            App.splashScreen.AddMessage("Loading 9...");
-            Thread.Sleep(100);
-            App.splashScreen.AddMessage("Loading 10...");
             Thread.Sleep(100);
             App.splashScreen.LoadComplete();
         }
@@ -119,10 +101,9 @@ namespace ProjectMooladhara
             {
                 MessageBox.Show(Ex.Message);
             }
-
         }
 
-        #endregion
+        #endregion Button
 
         #region TreeView
 
@@ -130,7 +111,15 @@ namespace ProjectMooladhara
         {
             try
             {
-                PropertiesGrid.SelectedObject = ProgramTree.SelectedItem;
+                if (sender == ProgramTree)
+                {
+                    PropertiesGrid.SelectedObject = ProgramTree.SelectedItem;
+                }
+
+                if (sender == InterruptTree)
+                {
+                    PropertiesGrid.SelectedObject = InterruptTree.SelectedItem;
+                }
             }
             catch (Exception Ex)
             {
@@ -163,7 +152,28 @@ namespace ProjectMooladhara
                     }
                     else
                     {
-                        MessageBox.Show("Please select a node in designer.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Please select a node in Main Program.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+
+                if (((System.Windows.Controls.MenuItem)sender).Header.ToString().Trim() == "Add to interrupt")
+                {
+                    if (InterruptTree.SelectedItem != null)
+                    {
+                        if (InterruptTree.SelectedItem.GetType().ToString().Trim() == "ProjectMooladhara.InterruptFunctionProperties")
+                        {
+                            FunctionProperties objFunction = PropertyFactory.GetFunctionWithProperties(((FunctionItems)FunctionsExplorerTree.SelectedItem).SourceRow);
+                            ((InterruptFunctionProperties)InterruptTree.SelectedItem).FunctionWithPropertiesCollection.Add(objFunction);
+                        }
+                        else
+                        {
+                            FunctionProperties objFunction = PropertyFactory.GetFunctionWithProperties(((FunctionItems)FunctionsExplorerTree.SelectedItem).SourceRow);
+                            ((FunctionProperties)InterruptTree.SelectedItem).FunctionWithPropertiesCollection.Add(objFunction);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a node in Interrupt Routine.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
             }
@@ -174,7 +184,6 @@ namespace ProjectMooladhara
         }
 
         #endregion ContextMenu
-
 
         #endregion Events
     }

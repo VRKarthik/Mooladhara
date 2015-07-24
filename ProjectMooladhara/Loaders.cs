@@ -24,6 +24,7 @@ namespace ProjectMooladhara
                 ProjectWatcher objWatcher = new ProjectWatcher();
 
                 LoadMainFunction();
+                LoadInterruptFunction();
             }
             catch (Exception Ex)
             {
@@ -272,7 +273,7 @@ namespace ProjectMooladhara
         {
             try
             {
-                SharedData.objMainWindow.ProgramTree.Items.Add(new InterruptFunctionProperties());
+                SharedData.objMainWindow.InterruptTree.Items.Add(new InterruptFunctionProperties());
             }
             catch (Exception Ex)
             {
