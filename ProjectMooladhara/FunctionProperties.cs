@@ -12,129 +12,275 @@ namespace ProjectMooladhara
     [DisplayName("Function Properties")]
     public class FunctionProperties : FunctionWithProperties
     {
+        public FunctionProperties()
+        {
+            
+        }
+
         //General
+        private string _FunctionName;
         [Category("General")]
         [DisplayName("Function Name")]
         [Description("Name of the function for identification.")]
         [ReadOnly(true)]
-        public string FunctionName { get; set; }
+        public string FunctionName
+        {
+            get { return _FunctionName; }
+            set { _FunctionName = value; }
+        }
 
+        private string _ReturnType;
         [Category("General")]
         [DisplayName("Returns")]
         [Description("Type of object that returned from this function.")]
         [ReadOnly(true)]
-        public string ReturnType { get; set; }
+        public string ReturnType
+        {
+            get { return _ReturnType; }
+            set { _ReturnType = value; }
+        }
 
+        private string _Syntax;
         [Category("General")]
         [DisplayName("Syntax")]
         [Description("Actual structure of function used in code.")]
         [ReadOnly(true)]
-        public string Syntax { get; set; }
+        public string Syntax
+        {
+            get { return _Syntax; }
+            set { _Syntax = value; }
+        }
 
+        private string _Description;
         [Category("General")]
         [DisplayName("Description")]
         [Description("Details of this function.")]
         [ReadOnly(true)]
-        public string Description { get; set; }
+        public string Description
+        {
+            get { return _Description; }
+            set { _Description = value; }
+        }
 
-        public string ExtensionId = string.Empty;
+        private string _ExtensionId;
+        [Browsable(false)]
+        public string ExtensionId
+        {
+            get { return _ExtensionId; }
+            set { _ExtensionId = value; }
+        }
 
-        public string SecondExtensionId = string.Empty;
+        private string _SecondExtensionId;
+        [Browsable(false)]
+
+        public string SecondExtensionId
+        {
+            get { return _SecondExtensionId; }
+            set { _SecondExtensionId = value; }
+        }
 
 
 
         //Argument 1
+        private string _Argument1Name;
         [Category("Argument 1")]
         [DisplayName("ARG-1 Name")]
         [Description("Name or identifier of Argument 1")]
         [ReadOnly(true)]
-        public string Argument1Name { get; set; }
+        public string Argument1Name
+        {
+            get { return _Argument1Name; }
+            set { _Argument1Name = value; }
+        }
 
+        private string _Argument1DataType;
         [Category("Argument 1")]
         [DisplayName("ARG-1 Datatype")]
         [Description("Datatype of Argument 1")]
         [ReadOnly(true)]
-        public string Argument1DataType { get; set; }
+        public string Argument1DataType
+        {
+            get { return _Argument1DataType; }
+            set { _Argument1DataType = value; }
+        }
 
-        public string Argument1Options = string.Empty;
+        private string _Argument1Options;
+        [Browsable(false)]
+        public string Argument1Options
+        {
+            get { return _Argument1Options; }
+            set { _Argument1Options = value; }
+        }
 
-        public string Argument1DefaultValue = string.Empty;
+        private string _Argument1DefaultValue;
+        [Browsable(false)]
+        public string Argument1DefaultValue
+        {
+            get { return _Argument1DefaultValue; }
+            set { _Argument1DefaultValue = value; }
+        }
 
+        private string _Argument1UserValue;
         [Category("Argument 1")]
         [DisplayName("ARG-1 Value")]
         [Description("Value from user input for Argument 1")]
-        public ObservableCollection<string> Argument1UserValue { get; set; }
+        public string Argument1UserValue
+        {
+            get { return _Argument1UserValue; }
+            set { _Argument1UserValue = value; }
+        }
 
 
 
         //Argument 2
+        private string _Argument2Name;
         [Category("Argument 2")]
         [DisplayName("ARG-2 Name")]
         [Description("Name or identifier of Argument 2")]
         [ReadOnly(true)]
-        public string Argument2Name { get; set; }
+        public string Argument2Name
+        {
+            get { return _Argument2Name; }
+            set { _Argument2Name = value; }
+        }
 
+        private string _Argument2DataType;
         [Category("Argument 2")]
         [DisplayName("ARG-2 Datatype")]
         [Description("Datatype of Argument 2")]
         [ReadOnly(true)]
-        public string Argument2DataType { get; set; }
+        public string Argument2DataType
+        {
+            get { return _Argument2DataType; }
+            set { _Argument2DataType = value; }
+        }
 
-        public string Argument2Options = string.Empty;
+        private string _Argument2Options;
+        [Browsable(false)]
+        public string Argument2Options
+        {
+            get { return _Argument2Options; }
+            set { _Argument2Options = value; }
+        }
 
-        public string Argument2DefaultValue = string.Empty;
+        private string _Argument2DefaultValue;
+        [Browsable(false)]
+        public string Argument2DefaultValue
+        {
+            get { return _Argument2DefaultValue; }
+            set { _Argument2DefaultValue = value; }
+        }
 
+        private string _Argument2UserValue;
         [Category("Argument 2")]
         [DisplayName("ARG-2 Value")]
         [Description("Value from user input for Argument 2")]
-        public string Argument2UserValue { get; set; }
+        public string Argument2UserValue
+        {
+            get { return _Argument2UserValue; }
+            set { _Argument2UserValue = value; }
+        }
 
 
 
         //Argument 3
+        private string _Argument3Name;
         [Category("Argument 3")]
         [DisplayName("ARG-3 Name")]
         [Description("Name or identifier of Argument 3")]
         [ReadOnly(true)]
-        public string Argument3Name { get; set; }
+        public string Argument3Name
+        {
+            get { return _Argument3Name; }
+            set { _Argument3Name = value; }
+        }
 
+        private string _Argument3DataType;
         [Category("Argument 3")]
         [DisplayName("ARG-3 Datatype")]
         [Description("Datatype of Argument 3")]
         [ReadOnly(true)]
-        public string Argument3DataType { get; set; }
+        public string Argument3DataType
+        {
+            get { return _Argument3DataType; }
+            set { _Argument3DataType = value; }
+        }
 
-        public string Argument3Options = string.Empty;
+        private string _Argument3Options;
+        [Browsable(false)]
+        public string Argument3Options
+        {
+            get { return _Argument3Options; }
+            set { _Argument3Options = value; }
+        }
 
-        public string Argument3DefaultValue = string.Empty;
+        private string _Argument3DefaultValue;
+        [Browsable(false)]
+        public string Argument3DefaultValue
+        {
+            get { return _Argument3DefaultValue; }
+            set { _Argument3DefaultValue = value; }
+        }
 
+        private string _Argument3UserValue;
         [Category("Argument 3")]
         [DisplayName("ARG-3 Value")]
         [Description("Value from user input for Argument 3")]
-        public string Argument3UserValue { get; set; }
+        public string Argument3UserValue
+        {
+            get { return _Argument3UserValue; }
+            set { _Argument3UserValue = value; }
+        }
 
 
 
         //Argument 4
+        private string _Argument4Name;
         [Category("Argument 4")]
         [DisplayName("ARG-4 Name")]
         [Description("Name or identifier of Argument 4")]
         [ReadOnly(true)]
-        public string Argument4Name { get; set; }
+        public string Argument4Name
+        {
+            get { return _Argument4Name; }
+            set { _Argument4Name = value; }
+        }
 
+        private string _Argument4DataType;
         [Category("Argument 4")]
         [DisplayName("ARG-4 Datatype")]
         [Description("Datatype of Argument 4")]
         [ReadOnly(true)]
-        public string Argument4DataType { get; set; }
+        public string Argument4DataType
+        {
+            get { return _Argument4DataType; }
+            set { _Argument4DataType = value; }
+        }
 
-        public string Argument4Options = string.Empty;
+        private string _Argument4Options;
+        [Browsable(false)]
+        public string Argument4Options
+        {
+            get { return _Argument4Options; }
+            set { _Argument4Options = value; }
+        }
 
-        public string Argument4DefaultValue = string.Empty;
+        private string _Argument4DefaultValue;
+        [Browsable(false)]
+        public string Argument4DefaultValue
+        {
+            get { return _Argument4DefaultValue; }
+            set { _Argument4DefaultValue = value; }
+        }
 
+        private string _Argument4UserValue;
         [Category("Argument 4")]
         [DisplayName("ARG-4 Value")]
         [Description("Value from user input for Argument 4")]
-        public string Argument4UserValue { get; set; }
+        public string Argument4UserValue
+        {
+            get { return _Argument4UserValue; }
+            set { _Argument4UserValue = value; }
+        }
     }
 }
