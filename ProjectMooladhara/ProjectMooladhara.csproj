@@ -90,6 +90,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FunctionWithFourArg.cs" />
+    <Compile Include="FunctionWithNoArg.cs" />
+    <Compile Include="FunctionWithThreeArg.cs" />
+    <Compile Include="FunctionWithTwoArg.cs" />
+    <Compile Include="FunctionWithOneArg.cs" />
     <Compile Include="FunctionWithProperties.cs" />
     <Compile Include="InterruptFunctionProperties.cs" />
     <Compile Include="MainFunctionProperties.cs" />

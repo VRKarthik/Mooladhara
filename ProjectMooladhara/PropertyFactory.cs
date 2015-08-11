@@ -18,116 +18,122 @@ namespace ProjectMooladhara
         {
             try
             {
-                FunctionProperties objFunction = new FunctionProperties();
+                FunctionProperties objFunctionProperties = new FunctionProperties();
                 DataTable objTable = DataFactory.GetDataTable("FUN16F884", DataFactory.DatabaseSelection.DeviceDatabase);
 
                 string stringSyntax = objRow["SYNTAX"].ToString().Trim();
                 string stringArgsOnly = stringSyntax.Substring(stringSyntax.IndexOf('('));
                 int intArgsCount = Regex.Matches(stringArgsOnly, "arg").Count;
 
-                if (intArgsCount == 1)
+                if (intArgsCount == 0)
                 {
-                    GetFirstArgProperties(objRow, objFunction);
+                    FunctionWithNoArg objFunction = new FunctionWithNoArg();
+
+                    objFunction.Description = objRow["DESC"].ToString();
+                    objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
+                    objFunction.ReturnType = objRow["RET_TYPE"].ToString();
+
+                    objFunctionProperties = objFunction;
+                }
+                else if (intArgsCount == 1)
+                {
+                    FunctionWithOneArg objFunction = new FunctionWithOneArg();
+
+                    objFunction.Description = objRow["DESC"].ToString();
+                    objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
+                    objFunction.ReturnType = objRow["RET_TYPE"].ToString();
+
+                    objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
+                    objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
+                    objFunction.Argument1Name = objRow["ARG1_NAME"].ToString();
+                    objFunction.Argument1Options = objRow["ARG1_OPTIONS"].ToString();
+
+                    objFunctionProperties = objFunction;
                 }
                 else if (intArgsCount == 2)
                 {
-                    GetFirstArgProperties(objRow, objFunction);
-                    GetSecondArgProperties(objRow, objFunction);
+                    FunctionWithTwoArg objFunction = new FunctionWithTwoArg();
+
+                    objFunction.Description = objRow["DESC"].ToString();
+                    objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
+                    objFunction.ReturnType = objRow["RET_TYPE"].ToString();
+
+                    objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
+                    objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
+                    objFunction.Argument1Name = objRow["ARG1_NAME"].ToString();
+                    objFunction.Argument1Options = objRow["ARG1_OPTIONS"].ToString();
+
+                    objFunction.Argument2DataType = objRow["ARG2_DATATYPE"].ToString();
+                    objFunction.Argument2DefaultValue = objRow["ARG2_DEFAULT"].ToString();
+                    objFunction.Argument2Name = objRow["ARG2_NAME"].ToString();
+                    objFunction.Argument2Options = objRow["ARG2_OPTIONS"].ToString();
+
+                    objFunctionProperties = objFunction;
                 }
                 else if (intArgsCount == 3)
                 {
-                    GetFirstArgProperties(objRow, objFunction);
-                    GetSecondArgProperties(objRow, objFunction);
-                    GetThirdArgProperties(objRow, objFunction);
+                    FunctionWithThreeArg objFunction = new FunctionWithThreeArg();
+
+                    objFunction.Description = objRow["DESC"].ToString();
+                    objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
+                    objFunction.ReturnType = objRow["RET_TYPE"].ToString();
+
+                    objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
+                    objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
+                    objFunction.Argument1Name = objRow["ARG1_NAME"].ToString();
+                    objFunction.Argument1Options = objRow["ARG1_OPTIONS"].ToString();
+
+                    objFunction.Argument2DataType = objRow["ARG2_DATATYPE"].ToString();
+                    objFunction.Argument2DefaultValue = objRow["ARG2_DEFAULT"].ToString();
+                    objFunction.Argument2Name = objRow["ARG2_NAME"].ToString();
+                    objFunction.Argument2Options = objRow["ARG2_OPTIONS"].ToString();
+
+                    objFunction.Argument3DataType = objRow["ARG3_DATATYPE"].ToString();
+                    objFunction.Argument3DefaultValue = objRow["ARG3_DEFAULT"].ToString();
+                    objFunction.Argument3Name = objRow["ARG3_NAME"].ToString();
+                    objFunction.Argument3Options = objRow["ARG3_OPTIONS"].ToString();
+
+                    objFunctionProperties = objFunction;
                 }
                 else if (intArgsCount == 4)
                 {
-                    GetFirstArgProperties(objRow, objFunction);
-                    GetSecondArgProperties(objRow, objFunction);
-                    GetThirdArgProperties(objRow, objFunction);
-                    GetFourthArgProperties(objRow, objFunction);
+                    FunctionWithFourArg objFunction = new FunctionWithFourArg();
+
+                    objFunction.Description = objRow["DESC"].ToString();
+                    objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
+                    objFunction.ReturnType = objRow["RET_TYPE"].ToString();
+
+                    objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
+                    objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
+                    objFunction.Argument1Name = objRow["ARG1_NAME"].ToString();
+                    objFunction.Argument1Options = objRow["ARG1_OPTIONS"].ToString();
+
+                    objFunction.Argument2DataType = objRow["ARG2_DATATYPE"].ToString();
+                    objFunction.Argument2DefaultValue = objRow["ARG2_DEFAULT"].ToString();
+                    objFunction.Argument2Name = objRow["ARG2_NAME"].ToString();
+                    objFunction.Argument2Options = objRow["ARG2_OPTIONS"].ToString();
+
+                    objFunction.Argument3DataType = objRow["ARG3_DATATYPE"].ToString();
+                    objFunction.Argument3DefaultValue = objRow["ARG3_DEFAULT"].ToString();
+                    objFunction.Argument3Name = objRow["ARG3_NAME"].ToString();
+                    objFunction.Argument3Options = objRow["ARG3_OPTIONS"].ToString();
+
+                    objFunction.Argument4DataType = objRow["ARG4_DATATYPE"].ToString();
+                    objFunction.Argument4DefaultValue = objRow["ARG4_DEFAULT"].ToString();
+                    objFunction.Argument4Name = objRow["ARG4_NAME"].ToString();
+                    objFunction.Argument4Options = objRow["ARG4_OPTIONS"].ToString();
+
+                    objFunctionProperties = objFunction;
                 }
 
-                GetOtherArgProperties(objRow, objFunction);
+                //ModifyPropertiesBrowsable(intArgsCount, objFunction);
 
-                ModifyPropertiesBrowsable(intArgsCount, objFunction);
-
-                return objFunction;
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message);
-            }
-        }
-
-        private static void GetFirstArgProperties(DataRow objRow, FunctionProperties objFunction)
-        {
-            try
-            {
-                objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
-                objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
-                objFunction.Argument1Name = objRow["ARG1_NAME"].ToString();
-                objFunction.Argument1Options = objRow["ARG1_OPTIONS"].ToString();
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message);
-            }
-        }
-
-        private static void GetSecondArgProperties(DataRow objRow, FunctionProperties objFunction)
-        {
-            try
-            {
-                objFunction.Argument2DataType = objRow["ARG2_DATATYPE"].ToString();
-                objFunction.Argument2DefaultValue = objRow["ARG2_DEFAULT"].ToString();
-                objFunction.Argument2Name = objRow["ARG2_NAME"].ToString();
-                objFunction.Argument2Options = objRow["ARG2_OPTIONS"].ToString();
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message);
-            }
-        }
-
-        private static void GetThirdArgProperties(DataRow objRow, FunctionProperties objFunction)
-        {
-            try
-            {
-                objFunction.Argument3DataType = objRow["ARG3_DATATYPE"].ToString();
-                objFunction.Argument3DefaultValue = objRow["ARG3_DEFAULT"].ToString();
-                objFunction.Argument3Name = objRow["ARG3_NAME"].ToString();
-                objFunction.Argument3Options = objRow["ARG3_OPTIONS"].ToString();
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message);
-            }
-        }
-
-        private static void GetFourthArgProperties(DataRow objRow, FunctionProperties objFunction)
-        {
-            try
-            {
-                objFunction.Argument4DataType = objRow["ARG4_DATATYPE"].ToString();
-                objFunction.Argument4DefaultValue = objRow["ARG4_DEFAULT"].ToString();
-                objFunction.Argument4Name = objRow["ARG4_NAME"].ToString();
-                objFunction.Argument4Options = objRow["ARG4_OPTIONS"].ToString();
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message);
-            }
-        }
-
-        private static void GetOtherArgProperties(DataRow objRow, FunctionProperties objFunction)
-        {
-            try
-            {
-                objFunction.Description = objRow["DESC"].ToString();
-                objFunction.Syntax = objRow["SYNTAX"].ToString();
-                objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
-                objFunction.ReturnType = objRow["RET_TYPE"].ToString();
+                return objFunctionProperties;
             }
             catch (Exception Ex)
             {
@@ -255,22 +261,6 @@ namespace ProjectMooladhara
                 BrowsableAttribute objBrowsableAttribute = (BrowsableAttribute)objPropertyDescriptor.Attributes[typeof(BrowsableAttribute)];
                 FieldInfo IsBrowsable = objBrowsableAttribute.GetType().GetField("browsable", BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.NonPublic);
                 IsBrowsable.SetValue(objBrowsableAttribute, false);
-            }
-            catch (Exception Ex)
-            {
-                throw new Exception(Ex.Message);
-            }
-        }
-
-        private static void SetBrowsableToTrue(PropertyInfo objProperty)
-        {
-            try
-            {
-                Debug.WriteLine(objProperty.Name);
-                PropertyDescriptor objPropertyDescriptor = TypeDescriptor.GetProperties(typeof(FunctionProperties))[objProperty.Name];
-                BrowsableAttribute objBrowsableAttribute = (BrowsableAttribute)objPropertyDescriptor.Attributes[typeof(BrowsableAttribute)];
-                FieldInfo IsBrowsable = objBrowsableAttribute.GetType().GetField("browsable", BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.NonPublic);
-                IsBrowsable.SetValue(objBrowsableAttribute, true);
             }
             catch (Exception Ex)
             {
