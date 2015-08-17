@@ -152,19 +152,6 @@ namespace ProjectMooladhara
                             FunctionProperties objFunction = PropertyFactory.GetFunctionWithProperties(((FunctionItems)FunctionsExplorerTree.SelectedItem).SourceRow);
                             ((FunctionProperties)ProgramTree.SelectedItem).FunctionWithPropertiesCollection.Add(objFunction);
                         }
-
-                        //Getting Metadata from FunctionWithPropertiesCollection objects
-
-                        //foreach (FunctionProperties objFunction in ((MainFunctionProperties)ProgramTree.SelectedItem).FunctionWithPropertiesCollection)
-                        //{
-                        //    foreach (PropertyInfo objProperty in objFunction.GetType().GetProperties())
-                        //    {
-                        //        PropertyDescriptor objPropertyDescriptor = TypeDescriptor.GetProperties(typeof(FunctionProperties))[objProperty.Name];
-                        //        BrowsableAttribute objBrowsableAttribute = (BrowsableAttribute)objPropertyDescriptor.Attributes[typeof(BrowsableAttribute)];
-                        //        FieldInfo IsBrowsable = objBrowsableAttribute.GetType().GetField("browsable", BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.NonPublic);
-                        //        Debug.WriteLine(objProperty.Name + " - " + IsBrowsable.GetValue(objBrowsableAttribute).ToString());
-                        //    }
-                        //}
                     }
                     else
                     {
