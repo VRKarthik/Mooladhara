@@ -145,7 +145,7 @@ namespace ProjectMooladhara
         [Description("Value from user input for Argument 1")]
         [ReadOnly(false)]
         [Browsable(true)]
-        [Editor(typeof(DataGridEditor), typeof(DataGridEditor))]
+        [Editor(typeof(ArgumentValueEditor), typeof(ArgumentValueEditor))]
         public string Argument1UserValue
         {
             get { return _Argument1UserValue; }

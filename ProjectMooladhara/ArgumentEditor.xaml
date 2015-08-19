@@ -1,0 +1,19 @@
+﻿<Fluent:RibbonWindow x:Class="ProjectMooladhara.ArgumentEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:ProjectMooladhara"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+		xmlns:Collection="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+        Title="Argument Editor" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" VerticalAlignment="Top" Icon="Icons/code.png" Width="800" Height="600" HorizontalAlignment="Left" ResizeMode="NoResize">
+    <Grid>
+    	<Label x:Name="lblFunctionTitle" Content="Function Name" Margin="105.128,10,10,0" VerticalAlignment="Top" Height="30" FontSize="13.333"/>
+    	<Label x:Name="lblFunctionName" Content="Function:" Margin="10.128,10,705.016,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="90"/>
+    	<Label x:Name="lblFunctionTitle_Copy" Content="Argument Name" Margin="105.129,45,10,0" VerticalAlignment="Top" Height="30" FontSize="13.333"/>
+    	<Label x:Name="lblFunctionName_Copy" Content="Argument:" Margin="10.129,45,705.016,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="90"/>
+    </Grid>
+</Fluent:RibbonWindow>

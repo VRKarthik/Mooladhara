@@ -12,16 +12,14 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Editors;
 
 namespace ProjectMooladhara
 {
-    public class DataGridEditor : ITypeEditor
+    public class ArgumentValueEditor : ITypeEditor
     {
         public FrameworkElement ResolveEditor(PropertyItem propertyItem)
         {
-            var button = new ComboBox();
-            button.MinHeight = 10;
-            button.HorizontalAlignment = HorizontalAlignment.Stretch;
-            button.VerticalAlignment = VerticalAlignment.Stretch;
-            button.IsTextSearchEnabled = true;
-            button.IsEditable = true;
+            Button objButton = new Button();
+            objButton.Content = "...";
+            objButton.HorizontalAlignment = HorizontalAlignment.Stretch;
+            objButton.Click += objButton_Click;
 
             //var _binding = new Binding("Value");
             //_binding.Source = propertyItem;
@@ -30,7 +28,12 @@ namespace ProjectMooladhara
             //_binding.Mode = propertyItem.IsReadOnly ? BindingMode.OneWay : BindingMode.TwoWay;
             //BindingOperations.SetBinding(button.DropDownContent as DataGrid, DataGrid.ItemsSourceProperty, _binding);
 
-            return button;
+            return objButton;
+        }
+
+        private void objButton_Click(object sender, RoutedEventArgs e)
+        {
+            FunctionObjectArgumentEditing.EditArgument((FunctionProperties)SharedData.objMainWindow.PropertiesGrid.SelectedObject);
         }
     }
 }
