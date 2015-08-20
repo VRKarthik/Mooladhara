@@ -59,6 +59,44 @@ namespace ProjectMooladhara
         }
 
         /// <summary>
+        /// Get Datatable from DB for specified query
+        /// </summary>
+        /// <param name="TableName">Query to be executed</param>
+        /// <returns>Datatable contains table data</returns>
+        public static DataTable GetDataTableByQuery(string Query, DatabaseSelection objDatabaseSelection)
+        {
+            try
+            {
+                SQLiteConnection objDatabaseConnection = new SQLiteConnection();
+
+                if (objDatabaseSelection == DatabaseSelection.MainDatabase)
+                {
+                    objDatabaseConnection.ConnectionString = stringConnectionStringToMainDB;
+                }
+                else if (objDatabaseSelection == DatabaseSelection.DeviceDatabase)
+                {
+                    objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\D" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
+                }
+
+                else if (objDatabaseSelection == DatabaseSelection.HeadersDatabase)
+                {
+                    objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\H" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
+                }
+                objDatabaseConnection.Open();
+                SQLiteCommand objSelectCommand = objDatabaseConnection.CreateCommand();
+                SQLiteDataAdapter objSQLiteAdapter = new SQLiteDataAdapter(Query, objDatabaseConnection);
+                DataSet objTempDataSet = new DataSet();
+                objSQLiteAdapter.Fill(objTempDataSet);
+                objDatabaseConnection.Close();
+                return objTempDataSet.Tables[0];
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception(Ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Get Datatable from DB for specified Tablename
         /// </summary>
         /// <param name="TableName">Table name to be selected</param>

@@ -33,7 +33,7 @@ namespace ProjectMooladhara
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
-                    objFunction.FunctionNameWithArgCount = objRow["FUNC_NAME"].ToString() + " [" + intArgsCount + " arg(s)]";
+                    objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
 
                     objFunctionProperties = objFunction;
                 }
@@ -45,7 +45,7 @@ namespace ProjectMooladhara
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
-                    objFunction.FunctionNameWithArgCount = objRow["FUNC_NAME"].ToString() + " [" + intArgsCount + " arg(s)]";
+                    objFunction.FunctionNameWithArgCount ="[" + intArgsCount + " arg(s)]";
 
                     objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
                     objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
@@ -62,7 +62,7 @@ namespace ProjectMooladhara
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
-                    objFunction.FunctionNameWithArgCount = objRow["FUNC_NAME"].ToString() + " [" + intArgsCount + " arg(s)]";
+                    objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
 
                     objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
                     objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
@@ -84,7 +84,7 @@ namespace ProjectMooladhara
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
-                    objFunction.FunctionNameWithArgCount = objRow["FUNC_NAME"].ToString() + " [" + intArgsCount + " arg(s)]";
+                    objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
 
                     objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
                     objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();
@@ -111,7 +111,7 @@ namespace ProjectMooladhara
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
-                    objFunction.FunctionNameWithArgCount = objRow["FUNC_NAME"].ToString() + " [" + intArgsCount + " arg(s)]";
+                    objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
 
                     objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
                     objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();

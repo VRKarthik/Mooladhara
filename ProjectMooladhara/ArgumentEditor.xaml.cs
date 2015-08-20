@@ -7,6 +7,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace ProjectMooladhara
 {
@@ -20,7 +21,7 @@ namespace ProjectMooladhara
         private FunctionProperties objFunctionToConfigure;
         private string ArgumentName;
         private Type FunctionType;
-        
+
         #endregion
 
         #region Initialization
@@ -54,9 +55,12 @@ namespace ProjectMooladhara
 
                 if (ArgumentName.Contains("ARG-1"))
                 {
+                    string Arg1Type = string.Empty;
+
                     if (FunctionType == typeof(FunctionWithOneArg))
                     {
                         FunctionWithOneArg TempObject = (FunctionWithOneArg)objFunctionToConfigure;
+                        Arg1Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument1ValueSource)
                         {
@@ -80,9 +84,10 @@ namespace ProjectMooladhara
                                 break;
                         }
                     }
-                    else if(FunctionType == typeof(FunctionWithTwoArg))
+                    else if (FunctionType == typeof(FunctionWithTwoArg))
                     {
                         FunctionWithTwoArg TempObject = (FunctionWithTwoArg)objFunctionToConfigure;
+                        Arg1Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument1ValueSource)
                         {
@@ -109,6 +114,7 @@ namespace ProjectMooladhara
                     else if (FunctionType == typeof(FunctionWithThreeArg))
                     {
                         FunctionWithThreeArg TempObject = (FunctionWithThreeArg)objFunctionToConfigure;
+                        Arg1Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument1ValueSource)
                         {
@@ -135,6 +141,7 @@ namespace ProjectMooladhara
                     else if (FunctionType == typeof(FunctionWithFourArg))
                     {
                         FunctionWithFourArg TempObject = (FunctionWithFourArg)objFunctionToConfigure;
+                        Arg1Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument1ValueSource)
                         {
@@ -158,12 +165,16 @@ namespace ProjectMooladhara
                                 break;
                         }
                     }
+                    cmdAssignFunction.ItemsSource = DataFactory.GetDataTableByQuery("select FUNC_NAME from fun" + SharedData.SelectedSeries + " where RET_TYPE='" + Arg1Type + "'", DataFactory.DatabaseSelection.DeviceDatabase).DefaultView;
                 }
                 else if (ArgumentName.Contains("ARG-2"))
                 {
+                    string Arg2Type = string.Empty;
+
                     if (FunctionType == typeof(FunctionWithTwoArg))
                     {
                         FunctionWithTwoArg TempObject = (FunctionWithTwoArg)objFunctionToConfigure;
+                        Arg2Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument2ValueSource)
                         {
@@ -190,6 +201,7 @@ namespace ProjectMooladhara
                     else if (FunctionType == typeof(FunctionWithThreeArg))
                     {
                         FunctionWithThreeArg TempObject = (FunctionWithThreeArg)objFunctionToConfigure;
+                        Arg2Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument2ValueSource)
                         {
@@ -216,6 +228,7 @@ namespace ProjectMooladhara
                     else if (FunctionType == typeof(FunctionWithFourArg))
                     {
                         FunctionWithFourArg TempObject = (FunctionWithFourArg)objFunctionToConfigure;
+                        Arg2Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument2ValueSource)
                         {
@@ -239,12 +252,16 @@ namespace ProjectMooladhara
                                 break;
                         }
                     }
+                    cmdAssignFunction.ItemsSource = DataFactory.GetDataTableByQuery("select FUNC_NAME from fun" + SharedData.SelectedSeries + " where RET_TYPE='" + Arg2Type + "'", DataFactory.DatabaseSelection.DeviceDatabase).DefaultView;
                 }
                 else if (ArgumentName.Contains("ARG-3"))
                 {
+                    string Arg3Type = string.Empty;
+
                     if (FunctionType == typeof(FunctionWithThreeArg))
                     {
                         FunctionWithThreeArg TempObject = (FunctionWithThreeArg)objFunctionToConfigure;
+                        Arg3Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument3ValueSource)
                         {
@@ -271,6 +288,7 @@ namespace ProjectMooladhara
                     else if (FunctionType == typeof(FunctionWithFourArg))
                     {
                         FunctionWithFourArg TempObject = (FunctionWithFourArg)objFunctionToConfigure;
+                        Arg3Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument3ValueSource)
                         {
@@ -294,12 +312,16 @@ namespace ProjectMooladhara
                                 break;
                         }
                     }
+                    cmdAssignFunction.ItemsSource = DataFactory.GetDataTableByQuery("select FUNC_NAME from fun" + SharedData.SelectedSeries + " where RET_TYPE='" + Arg3Type + "'", DataFactory.DatabaseSelection.DeviceDatabase).DefaultView;
                 }
                 else if (ArgumentName.Contains("ARG-4"))
                 {
+                    string Arg4Type = string.Empty;
+
                     if (FunctionType == typeof(FunctionWithFourArg))
                     {
                         FunctionWithFourArg TempObject = (FunctionWithFourArg)objFunctionToConfigure;
+                        Arg4Type = TempObject.Argument1DataType;
 
                         switch (TempObject.Argument4ValueSource)
                         {
@@ -323,6 +345,7 @@ namespace ProjectMooladhara
                                 break;
                         }
                     }
+                    cmdAssignFunction.ItemsSource = DataFactory.GetDataTableByQuery("select FUNC_NAME from fun" + SharedData.SelectedSeries + " where RET_TYPE='" + Arg4Type + "'", DataFactory.DatabaseSelection.DeviceDatabase).DefaultView;
                 }
             }
             catch (Exception Ex)
@@ -388,24 +411,28 @@ namespace ProjectMooladhara
                             FunctionWithOneArg objTempObject = (FunctionWithOneArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
+                            objTempObject.Argument1Status = Brushes.Red;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithTwoArg))
                         {
                             FunctionWithTwoArg objTempObject = (FunctionWithTwoArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
+                            objTempObject.Argument1Status = Brushes.Red;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithThreeArg))
                         {
                             FunctionWithThreeArg objTempObject = (FunctionWithThreeArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
+                            objTempObject.Argument1Status = Brushes.Red;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithFourArg))
                         {
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
+                            objTempObject.Argument1Status = Brushes.Red;
                         }
                     }
                     else if (ArgumentName.Contains("ARG-2"))
@@ -415,18 +442,21 @@ namespace ProjectMooladhara
                             FunctionWithTwoArg objTempObject = (FunctionWithTwoArg)objFunctionToConfigure;
                             objTempObject.Argument2UserValue = UserValueForArgument;
                             objTempObject.Argument2ValueSource = UserValueSource;
+                            objTempObject.Argument2Status = Brushes.Red;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithThreeArg))
                         {
                             FunctionWithThreeArg objTempObject = (FunctionWithThreeArg)objFunctionToConfigure;
                             objTempObject.Argument2UserValue = UserValueForArgument;
                             objTempObject.Argument2ValueSource = UserValueSource;
+                            objTempObject.Argument2Status = Brushes.Red;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithFourArg))
                         {
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument2UserValue = UserValueForArgument;
                             objTempObject.Argument2ValueSource = UserValueSource;
+                            objTempObject.Argument2Status = Brushes.Red;
                         }
                     }
                     else if (ArgumentName.Contains("ARG-3"))
@@ -436,12 +466,14 @@ namespace ProjectMooladhara
                             FunctionWithThreeArg objTempObject = (FunctionWithThreeArg)objFunctionToConfigure;
                             objTempObject.Argument3UserValue = UserValueForArgument;
                             objTempObject.Argument3ValueSource = UserValueSource;
+                            objTempObject.Argument3Status = Brushes.Red;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithFourArg))
                         {
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument3UserValue = UserValueForArgument;
                             objTempObject.Argument3ValueSource = UserValueSource;
+                            objTempObject.Argument3Status = Brushes.Red;
                         }
                     }
                     else if (ArgumentName.Contains("ARG-4"))
@@ -451,6 +483,7 @@ namespace ProjectMooladhara
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument4UserValue = UserValueForArgument;
                             objTempObject.Argument4ValueSource = UserValueSource;
+                            objTempObject.Argument4Status = Brushes.Red;
                         }
                     }
                     this.Close();
@@ -471,7 +504,7 @@ namespace ProjectMooladhara
         {
             try
             {
-                
+
             }
             catch (Exception Ex)
             {
@@ -487,7 +520,7 @@ namespace ProjectMooladhara
         {
             try
             {
-                
+
             }
             catch (Exception Ex)
             {

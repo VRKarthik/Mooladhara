@@ -25,7 +25,7 @@
     	<Label x:Name="lblDefaultValue" Content="defalut value" Margin="165,150,10,0" VerticalAlignment="Top" Height="30" FontSize="13.333" IsEnabled="{Binding IsChecked, ElementName=rdoDefaultValue}"/>
     	<TextBox x:Name="txtUserInput" Height="30" Margin="165,185,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" Controls:TextBoxHelper.Watermark="Provide your own input here" IsEnabled="{Binding IsChecked, ElementName=rdoUserInput}"/>
     	<ComboBox x:Name="cmbAssignVariable" Margin="165,220,10,0" VerticalAlignment="Top" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" IsEnabled="{Binding IsChecked, ElementName=rdoAssignVariable}" IsEditable="True"/>
-    	<ComboBox x:Name="cmdAssignFunction" Margin="165,255,10,0" VerticalAlignment="Top" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" IsEnabled="{Binding IsChecked, ElementName=rdoAssignFunction}" IsEditable="True"/>
+    	<ComboBox x:Name="cmdAssignFunction" Margin="165,255,10,0" VerticalAlignment="Top" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" IsEnabled="{Binding IsChecked, ElementName=rdoAssignFunction}" IsEditable="True" DisplayMemberPath="FUNC_NAME"/>
     	<Button x:Name="btnSave" Content="Save" Margin="10,290,10,0" VerticalAlignment="Top" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" FontWeight="Normal" Click="Button_Click"/>
     </Grid>
 </Fluent:RibbonWindow>

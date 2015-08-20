@@ -11,7 +11,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 namespace ProjectMooladhara
 {
     [DisplayName("Function Properties")]
-    public class FunctionWithThreeArg : FunctionProperties
+    public class FunctionWithThreeArg : FunctionProperties, INotifyPropertyChanged
     {
         public FunctionWithThreeArg()
         {
@@ -20,13 +20,13 @@ namespace ProjectMooladhara
         #region General
 
         //General
-        private SolidColorBrush ModificationStatusIndicator;
+        private SolidColorBrush ModificationStatusIndicator = null;
 
         [Browsable(false)]
         public SolidColorBrush StatusIndicator
         {
             get { return ModificationStatusIndicator; }
-            set { ModificationStatusIndicator = value; }
+            set { ModificationStatusIndicator = value; OnPropertyChanged("StatusIndicator"); }
         }
 
         private string _FunctionName;
@@ -180,6 +180,16 @@ namespace ProjectMooladhara
             set { _Argument1ValueSource = value; }
         }
 
+        private SolidColorBrush _Argument1Status = Brushes.LightGray;
+
+        [Browsable(false)]
+        public SolidColorBrush Argument1Status
+        {
+            get { return _Argument1Status; }
+            set
+            { _Argument1Status = value; OnPropertyChanged("Argument1Status"); }
+        }
+
         #endregion Argument1
 
         #region Argument2
@@ -250,6 +260,16 @@ namespace ProjectMooladhara
         {
             get { return _Argument2ValueSource; }
             set { _Argument2ValueSource = value; }
+        }
+
+        private SolidColorBrush _Argument2Status = Brushes.LightGray;
+
+        [Browsable(false)]
+        public SolidColorBrush Argument2Status
+        {
+            get { return _Argument2Status; }
+            set
+            { _Argument2Status = value; OnPropertyChanged("Argument2Status"); }
         }
 
         #endregion Argument2
@@ -324,6 +344,35 @@ namespace ProjectMooladhara
             set { _Argument3ValueSource = value; }
         }
 
+        private SolidColorBrush _Argument3Status = Brushes.LightGray;
+
+        [Browsable(false)]
+        public SolidColorBrush Argument3Status
+        {
+            get { return _Argument3Status; }
+            set
+            { _Argument3Status = value; OnPropertyChanged("Argument3Status"); }
+        }
+
         #endregion Argument3
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+                handler(this, e);
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }
