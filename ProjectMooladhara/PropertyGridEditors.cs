@@ -18,6 +18,7 @@ namespace ProjectMooladhara
         {
             Button objButton = new Button();
             objButton.Content = "...";
+            objButton.Tag = propertyItem.DisplayName;
             objButton.HorizontalAlignment = HorizontalAlignment.Stretch;
             objButton.Click += objButton_Click;
 
@@ -33,7 +34,7 @@ namespace ProjectMooladhara
 
         private void objButton_Click(object sender, RoutedEventArgs e)
         {
-            FunctionObjectArgumentEditing.EditArgument((FunctionProperties)SharedData.objMainWindow.PropertiesGrid.SelectedObject);
+            FunctionObjectArgumentEditing.EditArgument((FunctionProperties)SharedData.objMainWindow.PropertiesGrid.SelectedObject, ((Button)sender).Tag.ToString().Trim());
         }
     }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace ProjectMooladhara
@@ -19,6 +20,15 @@ namespace ProjectMooladhara
         #region General
 
         //General
+        private SolidColorBrush ModificationStatusIndicator;
+
+        [Browsable(false)]
+        public SolidColorBrush StatusIndicator
+        {
+            get { return ModificationStatusIndicator; }
+            set { ModificationStatusIndicator = value; }
+        }
+
         private string _FunctionName;
 
         [Category("General")]
@@ -30,6 +40,15 @@ namespace ProjectMooladhara
         {
             get { return _FunctionName; }
             set { _FunctionName = value; }
+        }
+
+        private string _FunctionNameWithArgCount;
+
+        [Browsable(false)]
+        public string FunctionNameWithArgCount
+        {
+            get { return _FunctionNameWithArgCount; }
+            set { _FunctionNameWithArgCount = value; }
         }
 
         private string _ReturnType;
@@ -145,10 +164,20 @@ namespace ProjectMooladhara
         [Description("Value from user input for Argument 1")]
         [ReadOnly(false)]
         [Browsable(true)]
+        [Editor(typeof(ArgumentValueEditor), typeof(ArgumentValueEditor))]
         public string Argument1UserValue
         {
             get { return _Argument1UserValue; }
             set { _Argument1UserValue = value; }
+        }
+
+        private string _Argument1ValueSource;
+
+        [Browsable(false)]
+        public string Argument1ValueSource
+        {
+            get { return _Argument1ValueSource; }
+            set { _Argument1ValueSource = value; }
         }
 
         #endregion Argument1
@@ -207,10 +236,20 @@ namespace ProjectMooladhara
         [Description("Value from user input for Argument 2")]
         [ReadOnly(false)]
         [Browsable(true)]
+        [Editor(typeof(ArgumentValueEditor), typeof(ArgumentValueEditor))]
         public string Argument2UserValue
         {
             get { return _Argument2UserValue; }
             set { _Argument2UserValue = value; }
+        }
+
+        private string _Argument2ValueSource;
+
+        [Browsable(false)]
+        public string Argument2ValueSource
+        {
+            get { return _Argument2ValueSource; }
+            set { _Argument2ValueSource = value; }
         }
 
         #endregion Argument2

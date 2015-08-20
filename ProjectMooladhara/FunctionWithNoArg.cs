@@ -32,6 +32,15 @@ namespace ProjectMooladhara
             set { _FunctionName = value; }
         }
 
+        private string _FunctionNameWithArgCount;
+
+        [Browsable(false)]
+        public string FunctionNameWithArgCount
+        {
+            get { return _FunctionNameWithArgCount; }
+            set { _FunctionNameWithArgCount = value; }
+        }
+
         private string _ReturnType;
 
         [Category("General")]

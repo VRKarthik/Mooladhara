@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace ProjectMooladhara
@@ -19,6 +20,15 @@ namespace ProjectMooladhara
         #region General
 
         //General
+        private SolidColorBrush ModificationStatusIndicator;
+
+        [Browsable(false)]
+        public SolidColorBrush StatusIndicator
+        {
+            get { return ModificationStatusIndicator; }
+            set { ModificationStatusIndicator = value; }
+        }
+
         private string _FunctionName;
 
         [Category("General")]
@@ -30,6 +40,15 @@ namespace ProjectMooladhara
         {
             get { return _FunctionName; }
             set { _FunctionName = value; }
+        }
+
+        private string _FunctionNameWithArgCount;
+
+        [Browsable(false)]
+        public string FunctionNameWithArgCount
+        {
+            get { return _FunctionNameWithArgCount; }
+            set { _FunctionNameWithArgCount = value; }
         }
 
         private string _ReturnType;
@@ -94,6 +113,7 @@ namespace ProjectMooladhara
         #region Argument1
 
         //Argument 1
+
         private string _Argument1Name;
 
         [Category("Argument 1")]
@@ -150,6 +170,15 @@ namespace ProjectMooladhara
         {
             get { return _Argument1UserValue; }
             set { _Argument1UserValue = value; }
+        }
+
+        private string _Argument1ValueSource;
+
+        [Browsable(false)]
+        public string Argument1ValueSource
+        {
+            get { return _Argument1ValueSource; }
+            set { _Argument1ValueSource = value; }
         }
 
         #endregion Argument1

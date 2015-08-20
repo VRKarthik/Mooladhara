@@ -9,7 +9,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 		xmlns:Collection="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
-        Title="MainWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" MinWidth="1280" MinHeight="720" VerticalAlignment="Bottom" Icon="Icons/code.png">
+        Title="MainWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" MinWidth="1280" MinHeight="720" Icon="Icons/code.png">
     <Grid>
         <Fluent:Ribbon AutomaticStateManagement="True" x:Name="ribbon" Height="143" CanCustomizeRibbon="False" CanCustomizeQuickAccessToolBar="False" CanCustomizeQuickAccessToolBarItems="False" IsAutomaticCollapseEnabled="True" SelectedTabIndex="0">
             <Fluent:Ribbon.Menu>
@@ -250,13 +250,13 @@
                                                 <HierarchicalDataTemplate DataType="{x:Type local:InterruptFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
                                                     <StackPanel Orientation="Horizontal">
                                                         <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionNameWithArgCount}" />
                                                     </StackPanel>
                                                 </HierarchicalDataTemplate>
                                                 <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
                                                     <StackPanel Orientation="Horizontal">
                                                         <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionNameWithArgCount}" />
                                                     </StackPanel>
                                                 </HierarchicalDataTemplate>
                                                 <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">

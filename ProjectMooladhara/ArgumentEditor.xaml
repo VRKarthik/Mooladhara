@@ -9,11 +9,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 		xmlns:Collection="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
-        Title="Argument Editor" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" VerticalAlignment="Top" Icon="Icons/code.png" Width="800" Height="600" HorizontalAlignment="Left" ResizeMode="NoResize">
+        Title="Argument Editor" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" VerticalAlignment="Top" Icon="Icons/code.png" Width="555" Height="340" HorizontalAlignment="Left" ResizeMode="NoResize">
     <Grid>
-    	<Label x:Name="lblFunctionTitle" Content="Function Name" Margin="105.128,10,10,0" VerticalAlignment="Top" Height="30" FontSize="13.333"/>
-    	<Label x:Name="lblFunctionName" Content="Function:" Margin="10.128,10,705.016,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="90"/>
-    	<Label x:Name="lblFunctionTitle_Copy" Content="Argument Name" Margin="105.129,45,10,0" VerticalAlignment="Top" Height="30" FontSize="13.333"/>
-    	<Label x:Name="lblFunctionName_Copy" Content="Argument:" Margin="10.129,45,705.016,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="90"/>
+    	<Grid Margin="10,20,10,0" VerticalAlignment="Top">
+    		<Label x:Name="lblFunctionTitle" Content="{Binding FunctionName}" Margin="185,0,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333"/>
+    		<Label x:Name="lblFunctionName" Content="Function to be configured:" Margin="0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="180" HorizontalAlignment="Left"/>
+    		<Label x:Name="lblArgumentName" Content="Argument Name" Margin="185,35,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333"/>
+    		<Label x:Name="lblArgumentTitle" Content="Select / Provide Value for:" Margin="0,35,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="180" HorizontalAlignment="Left"/>
+    	</Grid>
+    	<TextBlock x:Name="lblHelpDescription" Text="Provide Value for argument of above specified function from following options. You can provide value by your own input or you can assign value from existing variables, functions and default value." VerticalAlignment="Top" Height="55" FontSize="13.333" Margin="0,90,0,0" TextWrapping="Wrap" TextAlignment="Justify" Foreground="#FF001EFF" Padding="10,5,10,0" Background="#FFFEF8B6"/>
+    	<RadioButton x:Name="rdoDefaultValue" Content="Use default value" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="150" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" GroupName="ValueOption" IsChecked="True"/>
+    	<RadioButton x:Name="rdoUserInput" Content="Provide own input" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="150" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" GroupName="ValueOption"/>
+    	<RadioButton x:Name="rdoAssignVariable" Content="Assign a variable" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="150" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" GroupName="ValueOption"/>
+    	<RadioButton x:Name="rdoAssignFunction" Content="Assign a Function" HorizontalAlignment="Left" Margin="10,255,0,0" VerticalAlignment="Top" Width="150" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" GroupName="ValueOption"/>
+    	<Label x:Name="lblDefaultValue" Content="defalut value" Margin="165,150,10,0" VerticalAlignment="Top" Height="30" FontSize="13.333" IsEnabled="{Binding IsChecked, ElementName=rdoDefaultValue}"/>
+    	<TextBox x:Name="txtUserInput" Height="30" Margin="165,185,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" Controls:TextBoxHelper.Watermark="Provide your own input here" IsEnabled="{Binding IsChecked, ElementName=rdoUserInput}"/>
+    	<ComboBox x:Name="cmbAssignVariable" Margin="165,220,10,0" VerticalAlignment="Top" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" IsEnabled="{Binding IsChecked, ElementName=rdoAssignVariable}" IsEditable="True"/>
+    	<ComboBox x:Name="cmdAssignFunction" Margin="165,255,10,0" VerticalAlignment="Top" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" IsEnabled="{Binding IsChecked, ElementName=rdoAssignFunction}" IsEditable="True"/>
+    	<Button x:Name="btnSave" Content="Save" Margin="10,290,10,0" VerticalAlignment="Top" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" FontWeight="Normal" Click="Button_Click"/>
     </Grid>
 </Fluent:RibbonWindow>
