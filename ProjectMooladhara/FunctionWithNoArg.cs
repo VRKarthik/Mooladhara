@@ -9,6 +9,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace ProjectMooladhara
 {
+    [Serializable]
     [DisplayName("Function Properties")]
     public class FunctionWithNoArg : FunctionProperties
     {

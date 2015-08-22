@@ -61,6 +61,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\DLLs\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="ScintillaNET">
+      <HintPath>..\packages\jacobslusser.ScintillaNET.3.5.1\lib\net40\ScintillaNET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite">
@@ -107,6 +110,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters.cs" />
     <Compile Include="FunctionObjectArgumentEditing.cs" />
     <Compile Include="FunctionWithFourArg.cs" />
     <Compile Include="FunctionWithNoArg.cs" />

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectMooladhara
 {
+    [Serializable]
     [DisplayName("Main Function Properties")]
     public class MainFunctionProperties : FunctionWithProperties
     {

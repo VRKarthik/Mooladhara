@@ -10,6 +10,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace ProjectMooladhara
 {
+    [Serializable]
     [DisplayName("Function Properties")]
     public class FunctionWithOneArg : FunctionProperties, INotifyPropertyChanged
     {
@@ -20,6 +21,15 @@ namespace ProjectMooladhara
         #region General
 
         //General
+        private string ModificationStatusIndicator = null;
+
+        [Browsable(false)]
+        public string StatusIndicator
+        {
+            get { return ModificationStatusIndicator; }
+            set { ModificationStatusIndicator = value; OnPropertyChanged("StatusIndicator"); }
+        }
+
         private string _FunctionName;
 
         [Category("General")]
@@ -172,10 +182,10 @@ namespace ProjectMooladhara
             set { _Argument1ValueSource = value; }
         }
 
-        private SolidColorBrush _Argument1Status = Brushes.LightGray;
+        private string _Argument1Status = "LightGray";
 
         [Browsable(false)]
-        public SolidColorBrush Argument1Status
+        public string Argument1Status
         {
             get { return _Argument1Status; }
             set
@@ -186,6 +196,7 @@ namespace ProjectMooladhara
 
         #region INotifyPropertyChanged Members
 
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(PropertyChangedEventArgs e)

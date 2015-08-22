@@ -21,6 +21,7 @@ namespace ProjectMooladhara
         private FunctionProperties objFunctionToConfigure;
         private string ArgumentName;
         private Type FunctionType;
+        private string StatusBrush;
 
         #endregion
 
@@ -387,16 +388,19 @@ namespace ProjectMooladhara
                     {
                         UserValueForArgument = lblDefaultValue.Content.ToString();
                         UserValueSource = "Default";
+                        StatusBrush = "Blue";
                     }
                     else if (rdoUserInput.IsChecked == true)
                     {
                         UserValueForArgument = txtUserInput.Text.Trim();
                         UserValueSource = "User";
+                        StatusBrush = "Green";
                     }
                     else if (rdoAssignVariable.IsChecked == true)
                     {
                         UserValueForArgument = cmbAssignVariable.Text.Trim();
                         UserValueSource = "Variable";
+                        StatusBrush = "Red";
                     }
                     else if (rdoAssignFunction.IsChecked == true)
                     {
@@ -411,28 +415,28 @@ namespace ProjectMooladhara
                             FunctionWithOneArg objTempObject = (FunctionWithOneArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
-                            objTempObject.Argument1Status = Brushes.Red;
+                            objTempObject.Argument1Status = StatusBrush;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithTwoArg))
                         {
                             FunctionWithTwoArg objTempObject = (FunctionWithTwoArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
-                            objTempObject.Argument1Status = Brushes.Red;
+                            objTempObject.Argument1Status = StatusBrush;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithThreeArg))
                         {
                             FunctionWithThreeArg objTempObject = (FunctionWithThreeArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
-                            objTempObject.Argument1Status = Brushes.Red;
+                            objTempObject.Argument1Status = StatusBrush;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithFourArg))
                         {
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument1UserValue = UserValueForArgument;
                             objTempObject.Argument1ValueSource = UserValueSource;
-                            objTempObject.Argument1Status = Brushes.Red;
+                            objTempObject.Argument1Status = StatusBrush;
                         }
                     }
                     else if (ArgumentName.Contains("ARG-2"))
@@ -442,21 +446,21 @@ namespace ProjectMooladhara
                             FunctionWithTwoArg objTempObject = (FunctionWithTwoArg)objFunctionToConfigure;
                             objTempObject.Argument2UserValue = UserValueForArgument;
                             objTempObject.Argument2ValueSource = UserValueSource;
-                            objTempObject.Argument2Status = Brushes.Red;
+                            objTempObject.Argument2Status = StatusBrush;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithThreeArg))
                         {
                             FunctionWithThreeArg objTempObject = (FunctionWithThreeArg)objFunctionToConfigure;
                             objTempObject.Argument2UserValue = UserValueForArgument;
                             objTempObject.Argument2ValueSource = UserValueSource;
-                            objTempObject.Argument2Status = Brushes.Red;
+                            objTempObject.Argument2Status = StatusBrush;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithFourArg))
                         {
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument2UserValue = UserValueForArgument;
                             objTempObject.Argument2ValueSource = UserValueSource;
-                            objTempObject.Argument2Status = Brushes.Red;
+                            objTempObject.Argument2Status = StatusBrush;
                         }
                     }
                     else if (ArgumentName.Contains("ARG-3"))
@@ -466,14 +470,14 @@ namespace ProjectMooladhara
                             FunctionWithThreeArg objTempObject = (FunctionWithThreeArg)objFunctionToConfigure;
                             objTempObject.Argument3UserValue = UserValueForArgument;
                             objTempObject.Argument3ValueSource = UserValueSource;
-                            objTempObject.Argument3Status = Brushes.Red;
+                            objTempObject.Argument3Status = StatusBrush;
                         }
                         else if (objFunctionToConfigure.GetType() == typeof(FunctionWithFourArg))
                         {
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument3UserValue = UserValueForArgument;
                             objTempObject.Argument3ValueSource = UserValueSource;
-                            objTempObject.Argument3Status = Brushes.Red;
+                            objTempObject.Argument3Status = StatusBrush;
                         }
                     }
                     else if (ArgumentName.Contains("ARG-4"))
@@ -483,11 +487,16 @@ namespace ProjectMooladhara
                             FunctionWithFourArg objTempObject = (FunctionWithFourArg)objFunctionToConfigure;
                             objTempObject.Argument4UserValue = UserValueForArgument;
                             objTempObject.Argument4ValueSource = UserValueSource;
-                            objTempObject.Argument4Status = Brushes.Red;
+                            objTempObject.Argument4Status = StatusBrush;
                         }
                     }
                     this.Close();
                     //MessageBox.Show(((FunctionWithTwoArg)SharedData.objMainWindow.PropertiesGrid.SelectedObject).Argument1UserValue + "\n" + ((FunctionWithTwoArg)SharedData.objMainWindow.PropertiesGrid.SelectedObject).Argument2UserValue);
+                }
+
+                if (sender == btnClose)
+                {
+                    this.Close();
                 }
             }
             catch (Exception Ex)

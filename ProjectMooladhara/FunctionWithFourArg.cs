@@ -10,6 +10,7 @@ using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace ProjectMooladhara
 {
+    [Serializable]
     [DisplayName("Function Properties")]
     public class FunctionWithFourArg : FunctionProperties, INotifyPropertyChanged
     {
@@ -20,10 +21,10 @@ namespace ProjectMooladhara
         #region General
 
         //General
-        private SolidColorBrush ModificationStatusIndicator = null;
+        private string ModificationStatusIndicator = null;
 
         [Browsable(false)]
-        public SolidColorBrush StatusIndicator
+        public string StatusIndicator
         {
             get { return ModificationStatusIndicator; }
             set { ModificationStatusIndicator = value; OnPropertyChanged("StatusIndicator"); }
@@ -180,10 +181,10 @@ namespace ProjectMooladhara
             set { _Argument1ValueSource = value; }
         }
 
-        private SolidColorBrush _Argument1Status = Brushes.LightGray;
+        private string _Argument1Status = "LightGray";
 
         [Browsable(false)]
-        public SolidColorBrush Argument1Status
+        public string Argument1Status
         {
             get { return _Argument1Status; }
             set
@@ -262,10 +263,10 @@ namespace ProjectMooladhara
             set { _Argument2ValueSource = value; }
         }
 
-        private SolidColorBrush _Argument2Status = Brushes.LightGray;
+        private string _Argument2Status = "LightGray";
 
         [Browsable(false)]
-        public SolidColorBrush Argument2Status
+        public string Argument2Status
         {
             get { return _Argument2Status; }
             set
@@ -344,10 +345,10 @@ namespace ProjectMooladhara
             set { _Argument3ValueSource = value; }
         }
 
-        private SolidColorBrush _Argument3Status = Brushes.LightGray;
+        private string _Argument3Status = "LightGray";
 
         [Browsable(false)]
-        public SolidColorBrush Argument3Status
+        public string Argument3Status
         {
             get { return _Argument3Status; }
             set
@@ -426,10 +427,10 @@ namespace ProjectMooladhara
             set { _Argument4ValueSource = value; }
         }
 
-        private SolidColorBrush _Argument4Status = Brushes.LightGray;
+        private string _Argument4Status = "LightGray";
 
         [Browsable(false)]
-        public SolidColorBrush Argument4Status
+        public string Argument4Status
         {
             get { return _Argument4Status; }
             set
@@ -440,6 +441,7 @@ namespace ProjectMooladhara
 
         #region INotifyPropertyChanged Members
 
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(PropertyChangedEventArgs e)

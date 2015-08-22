@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectMooladhara
 {
+    [Serializable]
     public class FunctionWithProperties
     {
         [Browsable(false)]

@@ -4,12 +4,16 @@
         xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:ProjectMooladhara"
+        xmlns:sci="clr-namespace:ScintillaNET;assembly=ScintillaNET"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 		xmlns:Collection="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
         Title="MainWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" MinWidth="1280" MinHeight="720" Icon="Icons/code.png">
+	<Window.Resources>
+		<local:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrushConverter"/>
+	</Window.Resources>
     <Grid>
         <Fluent:Ribbon AutomaticStateManagement="True" x:Name="ribbon" Height="143" CanCustomizeRibbon="False" CanCustomizeQuickAccessToolBar="False" CanCustomizeQuickAccessToolBarItems="False" IsAutomaticCollapseEnabled="True" SelectedTabIndex="0">
             <Fluent:Ribbon.Menu>
@@ -262,10 +266,10 @@
 														<Border BorderBrush="{x:Null}" Height="30">
 															<TextBlock Foreground="Blue" VerticalAlignment="Center" Margin="5,0,0,0" Padding="0" FontWeight="Bold" Text="{Binding FunctionNameWithArgCount}" />
 														</Border>
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument1Status}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument2Status}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument3Status}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument4Status}" Width="9" Height="9" />
+														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument1Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
+														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument2Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
+														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument3Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
+														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument4Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
                                                     </StackPanel>
                                                 </HierarchicalDataTemplate>
                                                 <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
@@ -361,7 +365,12 @@
                                 </Grid>
                             </avalonDock:LayoutAnchorable>
 
-                            <avalonDock:LayoutAnchorable x:Name="TabCodeView" Title="Code View" CanClose="False" CanHide="False" />
+                            <avalonDock:LayoutAnchorable x:Name="TabCodeView" Title="Code View" CanClose="False" CanHide="False">
+								<Grid Name="TabCodeViewGrid" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+									 
+								</Grid>	
+							</avalonDock:LayoutAnchorable>
+
                         </avalonDock:LayoutDocumentPane>
                     </avalonDock:LayoutDocumentPaneGroup>
                     <avalonDock:LayoutAnchorablePaneGroup x:Name="AnchorablePaneGroup" DockWidth="400" Orientation="Vertical">
@@ -562,5 +571,6 @@
             </avalonDock:LayoutRoot>
         </avalonDock:DockingManager>
         <Grid Height="25" VerticalAlignment="Bottom" Background="#FF000068" />
+        <Button x:Name="TestSave" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="675,54,0,0" Click="Button_Click"/>
     </Grid>
 </Fluent:RibbonWindow>

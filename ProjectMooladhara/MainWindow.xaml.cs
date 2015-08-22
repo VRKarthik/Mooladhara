@@ -6,6 +6,13 @@ using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using ScintillaNET;
+using System.Collections;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Windows.Data;
 
 namespace ProjectMooladhara
 {
@@ -14,6 +21,12 @@ namespace ProjectMooladhara
     /// </summary>
     public partial class MainWindow : RibbonWindow
     {
+        #region Globals
+
+        //private Scintilla objCodeEditor;
+
+        #endregion Globals
+
         #region Initialization
 
         public MainWindow()
@@ -98,6 +111,19 @@ namespace ProjectMooladhara
                         Thread.Sleep(300);
                     });
                     ProjectCreation.ValidateAndCreateNewProject();
+                }
+
+                if (sender == TestSave)
+                {
+                    //TreeViewItem tvi = (TreeViewItem)ProgramTree.ItemContainerGenerator.ContainerFromIndex(0);
+                    //tvi.Focus();
+                    //MainFunctionProperties objMain = (MainFunctionProperties)ProgramTree.SelectedItem;
+                    //SerializeObject(objMain, "D:\\treeTest.txt");
+
+                    MainFunctionProperties objMain1 = DeSerializeObject<MainFunctionProperties>("D:\\treeTest.txt");
+                    MainFunctionProperties objMainRoot = new MainFunctionProperties();
+                    objMainRoot.FunctionWithPropertiesCollection = objMain1.FunctionWithPropertiesCollection;
+                    ProgramTree.Items.Add(objMainRoot);
                 }
             }
             catch (Exception Ex)
@@ -189,5 +215,59 @@ namespace ProjectMooladhara
         #endregion ContextMenu
 
         #endregion Events
+
+        #region UserDefined
+        /// <summary>
+        /// Serializes an object.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="serializableObject"></param>
+        /// <param name="fileName"></param>
+        public void SerializeObject<T>(T serializableObject, string fileName)
+        {
+            if (serializableObject == null) { return; }
+
+            try
+            {
+                Stream stream = File.Open(fileName, FileMode.Create);
+                BinaryFormatter bformatter = new BinaryFormatter();
+                bformatter.Serialize(stream, serializableObject);
+                stream.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Deserializes an xml file into an object list
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public T DeSerializeObject<T>(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName)) { return default(T); }
+
+            T objectOut = default(T);
+
+            try
+            {
+                Stream stream = File.Open(fileName, FileMode.Open);
+                BinaryFormatter bformatter = new BinaryFormatter();
+                objectOut = (T)bformatter.Deserialize(stream);
+                stream.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return objectOut;
+        }
+        
+        #endregion
     }
 }
