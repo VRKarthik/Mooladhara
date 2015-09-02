@@ -7,6 +7,7 @@
         xmlns:sci="clr-namespace:ScintillaNET;assembly=ScintillaNET"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:FastColoredTextBoxNS="clr-namespace:FastColoredTextBoxNS;assembly=FastColoredTextBox"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 		xmlns:Collection="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
@@ -367,7 +368,9 @@
 
                             <avalonDock:LayoutAnchorable x:Name="TabCodeView" Title="Code View" CanClose="False" CanHide="False">
 								<Grid Name="TabCodeViewGrid" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
-									 
+                                    <WindowsFormsHost Height="Auto" Width="Auto" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <FastColoredTextBoxNS:FastColoredTextBox Name="CodeEditor" AutoCompleteBrackets="True" BracketsHighlightStrategy="Strategy2" Language="CSharp" ShowFoldingLines="True" />
+                                    </WindowsFormsHost>
 								</Grid>	
 							</avalonDock:LayoutAnchorable>
 
