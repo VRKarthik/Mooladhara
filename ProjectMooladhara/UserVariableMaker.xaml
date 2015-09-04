@@ -1,0 +1,30 @@
+﻿<Fluent:RibbonWindow x:Class="ProjectMooladhara.UserVariableMaker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:ProjectMooladhara"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+		xmlns:Collection="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+        Title="Create youe own variable" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" VerticalAlignment="Top" Icon="Icons/code.png" Width="555" Height="300" HorizontalAlignment="Left" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock x:Name="lblHelpDescription" Text="Create a variable to hold your data. A variable can hold values of it's type, A variable may be single or an array of specified size, it requires initial value and it is identified by using it's name." VerticalAlignment="Top" Height="54" FontSize="13.333" Margin="0,20,0,0" TextWrapping="Wrap" TextAlignment="Justify" Foreground="#FF001EFF" Padding="10,5,10,0" Background="#FFFEF8B6" />
+        <Grid Margin="10,80,10,0" VerticalAlignment="Top">
+        	<Label x:Name="lblVariableName" Content="Provide Variable Name:" Margin="0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="180" HorizontalAlignment="Left" HorizontalContentAlignment="Right" />
+        	<Label x:Name="lblVariableType" Content="Select Variable Type:" Margin="0,35,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="180" HorizontalAlignment="Left" HorizontalContentAlignment="Right" />
+        	<Label x:Name="lblVariableIsArray" Content="Specify, If variable is an array:" Margin="0,70,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="180" HorizontalAlignment="Left" HorizontalContentAlignment="Right" />
+        	<Label x:Name="lblArraySize" Content="Okay, give a size:" Margin="0,105,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="180" HorizontalAlignment="Left" HorizontalContentAlignment="Right" IsEnabled="{Binding IsChecked, ElementName=CHKVariableIsArray}" />
+        	<Label x:Name="lblInitialValue" Content="Provide initial value:" Margin="0,140,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Width="180" HorizontalAlignment="Left" HorizontalContentAlignment="Right" />
+        	<TextBox x:Name="TXTVariableName" Controls:TextBoxHelper.Watermark="Name - to identify your variable" Margin="185,0,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" />
+        	<ComboBox x:Name="CMBVariableType" SelectedIndex="0" Margin="185,35,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" />
+        	<CheckBox x:Name="CHKVariableIsArray" Margin="185,70,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" Content="Yes, I need an array" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" />
+        	<Controls:NumericUpDown x:Name="NUDArraySize" Controls:TextBoxHelper.Watermark="Array Size" Margin="185,105,226,0" VerticalAlignment="Top" Height="30" FontSize="13.333" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" Minimum="1" IsEnabled="{Binding IsChecked, ElementName=CHKVariableIsArray}" />
+        	<TextBox x:Name="TXTInitialValue" Controls:TextBoxHelper.Watermark="Initial Value - to initialize your variable" Margin="185,140,0,0" VerticalAlignment="Top" Height="30" FontSize="13.333" />
+        </Grid>
+        <Button x:Name="btnClose" Content="Close" Margin="10,0,0,10" VerticalAlignment="Bottom" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" FontWeight="Normal" Click="Button_Click" Width="260" HorizontalAlignment="Left" />
+        <Button x:Name="btnSave" Content="Save" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="30" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="13.333" FontWeight="Normal" Click="Button_Click" Width="260" HorizontalAlignment="Right" />
+    </Grid>
+</Fluent:RibbonWindow>

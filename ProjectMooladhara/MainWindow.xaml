@@ -12,9 +12,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 		xmlns:Collection="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
         Title="MainWindow" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" MinWidth="1280" MinHeight="720" Icon="Icons/code.png">
-	<Window.Resources>
-		<local:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrushConverter"/>
-	</Window.Resources>
+    <Window.Resources>
+        <local:ColorToSolidColorBrushValueConverter  x:Key="ColorToSolidColorBrushConverter" />
+    </Window.Resources>
     <Grid>
         <Fluent:Ribbon AutomaticStateManagement="True" x:Name="ribbon" Height="143" CanCustomizeRibbon="False" CanCustomizeQuickAccessToolBar="False" CanCustomizeQuickAccessToolBarItems="False" IsAutomaticCollapseEnabled="True" SelectedTabIndex="0">
             <Fluent:Ribbon.Menu>
@@ -230,150 +230,185 @@
                             </avalonDock:LayoutAnchorable>
 
                             <avalonDock:LayoutAnchorable x:Name="TabTreeView" Title="Design View" CanClose="False" CanHide="False">
-                                <Grid Margin="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Grid Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="2" />
-                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="0.5*" />
+                                        <ColumnDefinition Width="9.5*" />
                                     </Grid.ColumnDefinitions>
-                                    <Grid HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
-										<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
-											<ContentControl Width="46" Height="46" Style="{StaticResource ProgramTreeIcon}" Margin="4,0,0,0" />
-											<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
-												<TextBlock Margin="4,4,4,0" Name="TBLProgramTreeTitle" Text="Main function - starting point of the program." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-												<TextBlock Margin="4,0,4,0" Name="TBLProgramTreeDescription" Text="Add fuctions, variables, control statements to start program." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-											</StackPanel>
+                                    <Grid Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto" Background="Gray">
+                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+											<Button Name="BTNAddVariable" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+													<ContentControl Style="{StaticResource VariableIcon}" Width="30" Height="30" />
+													<TextBlock Margin="0,3,0,0" Text="Add Variable" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+												</StackPanel>
+											</Button>
+											<Button Name="BTNSave" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+													<ContentControl Style="{StaticResource SaveIcon}" Width="30" Height="30" />
+													<TextBlock Margin="0,3,0,0" Text="Save" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+												</StackPanel>
+											</Button>
+											<Button Name="BTNCompile" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+													<ContentControl Style="{StaticResource CompileIcon}" Width="30" Height="30" />
+													<TextBlock Margin="0,3,0,0" Text="Compile" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+												</StackPanel>
+											</Button>
+											<Button Name="BTNBuild" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+													<ContentControl Style="{StaticResource BuildIcon}" Width="30" Height="30" />
+													<TextBlock Margin="0,3,0,0" Text="Build" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+												</StackPanel>
+											</Button>
 										</StackPanel>
-                                        <TreeView x:Name="ProgramTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
-                                            <TreeView.Resources>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:MainFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
-                                                    </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:InterruptFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
-                                                    </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                    <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-														<Border BorderBrush="{x:Null}" Height="30">
-															<TextBlock VerticalAlignment="Center" Padding="0" FontWeight="Bold" Text="{Binding FunctionName}" />
-														</Border>
-														<Border BorderBrush="{x:Null}" Height="30">
-															<TextBlock Foreground="Blue" VerticalAlignment="Center" Margin="5,0,0,0" Padding="0" FontWeight="Bold" Text="{Binding FunctionNameWithArgCount}" />
-														</Border>
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument1Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument2Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument3Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument4Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
-                                                    </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFlowControl}" Margin="0,0,5,0" />
-                                                        <TextBlock Text="{Binding FlowControlName}" />
-                                                    </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <DataTemplate DataType="{x:Type local:VariableProperties}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeVariable}" Margin="0,0,5,0" />
-                                                        <TextBlock Text="{Binding VariableName}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                                <DataTemplate DataType="{x:Type local:MacroProperties}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeMacro}" Margin="0,0,5,0" />
-                                                        <TextBlock Text="{Binding MacroName}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </TreeView.Resources>
-                                        </TreeView>
                                     </Grid>
-                                    <GridSplitter Background="DarkSlateBlue" Grid.Column="1" Width="5" HorizontalAlignment="Stretch">
-										<GridSplitter.Style>
-										    <Style TargetType="{x:Type GridSplitter}">
-										        <Setter Property="Background">
-										            <Setter.Value>
-										                <SolidColorBrush Color="DarkSlateBlue" />
-										            </Setter.Value>
-										        </Setter>
-										    </Style>
-										</GridSplitter.Style>
-									</GridSplitter>
-                                    <Grid Grid.Column="2" HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
-										<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
-											<ContentControl Width="46" Height="46" Style="{StaticResource InterruptTreeIcon}" Margin="4,0,0,0" />
-											<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
-												<TextBlock Margin="4,4,4,0" Name="TBLInterruptTreeTitle" Text="Interrupt routine - starting point of the interrupt." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-												<TextBlock Margin="4,0,4,0" Name="TBLInterruptTreeDescription" Text="Add fuctions, variables, control statements to start interrupt." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-											</StackPanel>
-										</StackPanel>
-                                        <TreeView x:Name="InterruptTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
-                                            <TreeView.Resources>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:MainFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                    <Grid Grid.Column="1">
+                                        <Grid Margin="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="2" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
+                                                    <ContentControl Width="46" Height="46" Style="{StaticResource ProgramTreeIcon}" Margin="4,0,0,0" />
+                                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
+                                                        <TextBlock Margin="4,4,4,0" Name="TBLProgramTreeTitle" Text="Main function - starting point of the program." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                                                        <TextBlock Margin="4,0,4,0" Name="TBLProgramTreeDescription" Text="Add fuctions, variables, control statements to start program." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
                                                     </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:InterruptFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-                                                        <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                </StackPanel>
+                                                <TreeView x:Name="ProgramTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
+                                                    <TreeView.Resources>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:MainFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+                                                                <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:InterruptFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+                                                                <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+                                                                <Border BorderBrush="{x:Null}" Height="30">
+                                                                    <TextBlock VerticalAlignment="Center" Padding="0" FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                                </Border>
+                                                                <Border BorderBrush="{x:Null}" Height="30">
+                                                                    <TextBlock Foreground="Blue" VerticalAlignment="Center" Margin="5,0,0,0" Padding="0" FontWeight="Bold" Text="{Binding FunctionNameWithArgCount}" />
+                                                                </Border>
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument1Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument2Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument3Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Path=Argument4Status, Converter={StaticResource ColorToSolidColorBrushConverter}}" Width="9" Height="9" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFlowControl}" Margin="0,0,5,0" />
+                                                                <TextBlock Text="{Binding FlowControlName}" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <DataTemplate DataType="{x:Type local:VariableProperties}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeVariable}" Margin="0,0,5,0" />
+                                                                <TextBlock Text="{Binding VariableName}" />
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                        <DataTemplate DataType="{x:Type local:MacroProperties}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeMacro}" Margin="0,0,5,0" />
+                                                                <TextBlock Text="{Binding MacroName}" />
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </TreeView.Resources>
+                                                </TreeView>
+                                            </Grid>
+                                            <GridSplitter Background="DarkSlateBlue" Grid.Column="1" Width="5" HorizontalAlignment="Stretch">
+                                                <GridSplitter.Style>
+                                                    <Style TargetType="{x:Type GridSplitter}">
+                                                        <Setter Property="Background">
+                                                            <Setter.Value>
+                                                                <SolidColorBrush Color="DarkSlateBlue" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                    </Style>
+                                                </GridSplitter.Style>
+                                            </GridSplitter>
+                                            <Grid Grid.Column="2" HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
+                                                    <ContentControl Width="46" Height="46" Style="{StaticResource InterruptTreeIcon}" Margin="4,0,0,0" />
+                                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
+                                                        <TextBlock Margin="4,4,4,0" Name="TBLInterruptTreeTitle" Text="Interrupt routine - starting point of the interrupt." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                                                        <TextBlock Margin="4,0,4,0" Name="TBLInterruptTreeDescription" Text="Add fuctions, variables, control statements to start interrupt." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
                                                     </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                     <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
-														<Border BorderBrush="{x:Null}" Height="30">
-															<TextBlock VerticalAlignment="Center" Padding="0" FontWeight="Bold" Text="{Binding FunctionName}" />
-														</Border>
-														<Border BorderBrush="{x:Null}" Height="30">
-															<TextBlock Foreground="Blue" VerticalAlignment="Center" Margin="5,0,0,0" Padding="0" FontWeight="Bold" Text="{Binding FunctionNameWithArgCount}" />
-														</Border>
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument1Status}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument2Status}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument3Status}" Width="9" Height="9" />
-														<Rectangle Margin="3,3,0,0" Fill="{Binding Argument4Status}" Width="9" Height="9" />
-                                                    </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeFlowControl}" Margin="0,0,5,0" />
-                                                        <TextBlock Text="{Binding FlowControlName}" />
-                                                    </StackPanel>
-                                                </HierarchicalDataTemplate>
-                                                <DataTemplate DataType="{x:Type local:VariableProperties}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeVariable}" Margin="0,0,5,0" />
-                                                        <TextBlock Text="{Binding VariableName}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                                <DataTemplate DataType="{x:Type local:MacroProperties}">
-                                                    <StackPanel Orientation="Horizontal">
-                                                        <ContentControl Width="15" Height="15" Style="{StaticResource TreeMacro}" Margin="0,0,5,0" />
-                                                        <TextBlock Text="{Binding MacroName}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </TreeView.Resources>
-                                        </TreeView>
+                                                </StackPanel>
+                                                <TreeView x:Name="InterruptTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
+                                                    <TreeView.Resources>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:MainFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+                                                                <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:InterruptFunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+                                                                <TextBlock FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:FunctionProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFunction}" Margin="0,0,5,0" />
+                                                                <Border BorderBrush="{x:Null}" Height="30">
+                                                                    <TextBlock VerticalAlignment="Center" Padding="0" FontWeight="Bold" Text="{Binding FunctionName}" />
+                                                                </Border>
+                                                                <Border BorderBrush="{x:Null}" Height="30">
+                                                                    <TextBlock Foreground="Blue" VerticalAlignment="Center" Margin="5,0,0,0" Padding="0" FontWeight="Bold" Text="{Binding FunctionNameWithArgCount}" />
+                                                                </Border>
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Argument1Status}" Width="9" Height="9" />
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Argument2Status}" Width="9" Height="9" />
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Argument3Status}" Width="9" Height="9" />
+                                                                <Rectangle Margin="3,3,0,0" Fill="{Binding Argument4Status}" Width="9" Height="9" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <HierarchicalDataTemplate DataType="{x:Type local:FlowControlProperties}" ItemsSource="{Binding FunctionWithPropertiesCollection}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeFlowControl}" Margin="0,0,5,0" />
+                                                                <TextBlock Text="{Binding FlowControlName}" />
+                                                            </StackPanel>
+                                                        </HierarchicalDataTemplate>
+                                                        <DataTemplate DataType="{x:Type local:VariableProperties}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeVariable}" Margin="0,0,5,0" />
+                                                                <TextBlock Text="{Binding VariableName}" />
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                        <DataTemplate DataType="{x:Type local:MacroProperties}">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <ContentControl Width="15" Height="15" Style="{StaticResource TreeMacro}" Margin="0,0,5,0" />
+                                                                <TextBlock Text="{Binding MacroName}" />
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </TreeView.Resources>
+                                                </TreeView>
+                                            </Grid>
+                                        </Grid>
                                     </Grid>
                                 </Grid>
                             </avalonDock:LayoutAnchorable>
 
                             <avalonDock:LayoutAnchorable x:Name="TabCodeView" Title="Code View" CanClose="False" CanHide="False">
-								<Grid Name="TabCodeViewGrid" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+                                <Grid Name="TabCodeViewGrid" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
                                     <WindowsFormsHost Height="Auto" Width="Auto" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                         <FastColoredTextBoxNS:FastColoredTextBox Name="CodeEditor" AutoCompleteBrackets="True" BracketsHighlightStrategy="Strategy2" Language="CSharp" ShowFoldingLines="True" />
                                     </WindowsFormsHost>
-								</Grid>	
-							</avalonDock:LayoutAnchorable>
-
+                                </Grid>
+                            </avalonDock:LayoutAnchorable>
                         </avalonDock:LayoutDocumentPane>
                     </avalonDock:LayoutDocumentPaneGroup>
                     <avalonDock:LayoutAnchorablePaneGroup x:Name="AnchorablePaneGroup" DockWidth="400" Orientation="Vertical">
@@ -574,6 +609,6 @@
             </avalonDock:LayoutRoot>
         </avalonDock:DockingManager>
         <Grid Height="25" VerticalAlignment="Bottom" Background="#FF000068" />
-        <Button x:Name="TestSave" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="675,54,0,0" Click="Button_Click"/>
+        <Button x:Name="TestSave" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="675,54,0,0" Click="Button_Click" />
     </Grid>
 </Fluent:RibbonWindow>

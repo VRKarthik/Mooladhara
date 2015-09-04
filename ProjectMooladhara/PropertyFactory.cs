@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ProjectMooladhara
 {
@@ -45,7 +40,7 @@ namespace ProjectMooladhara
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
-                    objFunction.FunctionNameWithArgCount ="[" + intArgsCount + " arg(s)]";
+                    objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
 
                     objFunction.Argument1DataType = objRow["ARG1_DATATYPE"].ToString();
                     objFunction.Argument1DefaultValue = objRow["ARG1_DEFAULT"].ToString();

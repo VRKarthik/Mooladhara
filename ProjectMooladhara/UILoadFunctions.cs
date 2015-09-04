@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -132,7 +128,7 @@ namespace ProjectMooladhara
             try
             {
                 StringBuilder objStringBuilder = new StringBuilder();
-                foreach(string stringDesc in FullDesc)
+                foreach (string stringDesc in FullDesc)
                 {
                     objStringBuilder.AppendLine(stringDesc);
                 }

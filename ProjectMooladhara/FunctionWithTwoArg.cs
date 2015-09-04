@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace ProjectMooladhara
 {
@@ -276,8 +269,8 @@ namespace ProjectMooladhara
         #endregion Argument2
 
         #region INotifyPropertyChanged Members
-        
-        [field:NonSerialized]
+
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(PropertyChangedEventArgs e)
@@ -293,6 +286,6 @@ namespace ProjectMooladhara
                 OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
         }
 
-        #endregion
+        #endregion INotifyPropertyChanged Members
     }
 }

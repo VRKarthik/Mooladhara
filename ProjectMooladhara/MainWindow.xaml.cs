@@ -1,18 +1,10 @@
 ﻿using Fluent;
 using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Reflection;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using ScintillaNET;
-using System.Collections;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Windows.Data;
 
 namespace ProjectMooladhara
 {
@@ -125,6 +117,12 @@ namespace ProjectMooladhara
                     objMainRoot.FunctionWithPropertiesCollection = objMain1.FunctionWithPropertiesCollection;
                     ProgramTree.Items.Add(objMainRoot);
                 }
+
+                if (sender == BTNAddVariable)
+                {
+                    UserVariableMaker objUserVariableMaker = new UserVariableMaker();
+                    objUserVariableMaker.ShowDialog();
+                }
             }
             catch (Exception Ex)
             {
@@ -217,6 +215,7 @@ namespace ProjectMooladhara
         #endregion Events
 
         #region UserDefined
+
         /// <summary>
         /// Serializes an object.
         /// </summary>
@@ -239,7 +238,6 @@ namespace ProjectMooladhara
                 MessageBox.Show(ex.Message);
             }
         }
-
 
         /// <summary>
         /// Deserializes an xml file into an object list
@@ -267,7 +265,7 @@ namespace ProjectMooladhara
 
             return objectOut;
         }
-        
-        #endregion
+
+        #endregion UserDefined
     }
 }

@@ -9,7 +9,7 @@ namespace ProjectMooladhara
     /// <summary>
     /// Shell for RDS, contains all modules
     /// </summary>
-    public partial class ArgumentEditor : RibbonWindow
+    public partial class UserVariableEditor : RibbonWindow
     {
         #region Globals
 
@@ -22,7 +22,7 @@ namespace ProjectMooladhara
 
         #region Initialization
 
-        public ArgumentEditor(FunctionProperties objFunction, string ArgumentName)
+        public UserVariableEditor(FunctionProperties objFunction, string ArgumentName)
         {
             InitializeComponent();
             objFunctionToConfigure = objFunction;

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace ProjectMooladhara
 {
@@ -39,8 +34,6 @@ namespace ProjectMooladhara
 
         public string SecondExtensionId = string.Empty;
 
-
-
         //Argument 1
         [Category("Argument 1")]
         [DisplayName("ARG-1 Name")]
@@ -62,8 +55,6 @@ namespace ProjectMooladhara
         [DisplayName("ARG-1 Value")]
         [Description("Value from user input for Argument 1")]
         public string Argument1UserValue { get; set; }
-
-
 
         //Argument 2
         [Category("Argument 2")]
@@ -87,8 +78,6 @@ namespace ProjectMooladhara
         [Description("Value from user input for Argument 2")]
         public string Argument2UserValue { get; set; }
 
-
-
         //Argument 3
         [Category("Argument 3")]
         [DisplayName("ARG-3 Name")]
@@ -110,8 +99,6 @@ namespace ProjectMooladhara
         [DisplayName("ARG-3 Value")]
         [Description("Value from user input for Argument 3")]
         public string Argument3UserValue { get; set; }
-
-
 
         //Argument 4
         [Category("Argument 4")]

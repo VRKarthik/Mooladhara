@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using System.Windows;
 
 namespace ProjectMooladhara
@@ -18,6 +12,7 @@ namespace ProjectMooladhara
 
         private ManualResetEvent ResetSplashCreated;
         private Thread SplashThread;
+
         protected override void OnStartup(StartupEventArgs e)
         {
             try

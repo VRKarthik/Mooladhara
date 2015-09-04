@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectMooladhara
 {
@@ -15,7 +11,7 @@ namespace ProjectMooladhara
                 ArgumentEditor objArgumentEditor = new ArgumentEditor(objFunction, ArgumentName);
                 objArgumentEditor.Show();
             }
-            catch(Exception Ex)
+            catch (Exception Ex)
             {
                 throw Ex;
             }

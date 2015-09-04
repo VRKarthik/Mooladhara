@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace ProjectMooladhara
 {
     public static class Loaders
     {
         public static FunctionProperties objFunction;
+
         public static void LoadProject()
         {
             try
@@ -68,6 +65,7 @@ namespace ProjectMooladhara
             try
             {
                 #region OldCode
+
                 //if (SharedData.objMainWindow.ProjectExplorerTree.HasItems == true)
                 //{
                 //    SharedData.objMainWindow.ProjectExplorerTree.Items.Clear();
@@ -107,7 +105,8 @@ namespace ProjectMooladhara
 
                 //    SharedData.objMainWindow.ProjectExplorerTree.ItemsSource = Solutions;
                 // }
-                #endregion
+
+                #endregion OldCode
 
                 SharedData.objMainWindow.ProjectExplorerTree.ItemsSource = PrepareProjectFolders();
             }

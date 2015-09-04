@@ -6,32 +6,32 @@
 		xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="Rapid Development Studio" WindowStartupLocation="CenterScreen" d:DesignHeight="400" d:DesignWidth="600" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None" Topmost="True" AllowsTransparency="True" ShowCloseButton="False" ShowIconOnTitleBar="False" ShowMaxRestoreButton="False" ShowMinButton="False" ShowTitleBar="False" Loaded="SplashScreen_Loaded" Initialized="SplashScreen_Initialized" Width="600" Height="400" FontFamily="Walkway Bold">
     <Window.Resources>
-        <Storyboard x:Key="showStoryBoard"/>
+        <Storyboard x:Key="showStoryBoard" />
 
-        <Storyboard x:Key="HideStoryBoard"/>
+        <Storyboard x:Key="HideStoryBoard" />
     </Window.Resources>
     <Grid>
-    	<Grid.Background>
-    		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-    			<GradientStop Color="#FF30001A" Offset="1"/>
-    			<GradientStop Color="#FF772953"/>
-    		</LinearGradientBrush>
-    	</Grid.Background>
-        <Label x:Name="lblCompany" Content="company" VerticalContentAlignment="Center" Padding="2" HorizontalContentAlignment="Center" Height="38" VerticalAlignment="Bottom" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP N" Foreground="#FF3D3D3D" FontSize="16" Margin="0,0,0,21"/>
-        <Label x:Name="lblPoweredBy" Content="Powered by" Margin="0,0,0,46" FontSize="10.667" VerticalContentAlignment="Center" Padding="2" Height="22" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalContentAlignment="Center" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP N Light" Foreground="Gray"/>
-        <Label x:Name="lblAppName" Content="Main" Margin="0,184,0,0" FontSize="32" VerticalContentAlignment="Center" Padding="2" Foreground="White" FontFamily="Scream" Height="60" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
-        <Label x:Name="lblAppDescription" Content="for test" Margin="0,230,0,0" VerticalContentAlignment="Center" Padding="2" VerticalAlignment="Top" Foreground="#FF505050" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP SemiLight" HorizontalContentAlignment="Center" Height="25" FontSize="16"/>
-        <Label x:Name="lblVersion" Content="Version - 1.0.0.0" Height="24.267" Margin="0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="2" Foreground="Gray" HorizontalContentAlignment="Center" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP SemiLight" HorizontalAlignment="Right" Width="108"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF30001A" Offset="1" />
+                <GradientStop Color="#FF772953" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="lblCompany" Content="company" VerticalContentAlignment="Center" Padding="2" HorizontalContentAlignment="Center" Height="38" VerticalAlignment="Bottom" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP N" Foreground="#FF3D3D3D" FontSize="16" Margin="0,0,0,21" />
+        <Label x:Name="lblPoweredBy" Content="Powered by" Margin="0,0,0,46" FontSize="10.667" VerticalContentAlignment="Center" Padding="2" Height="22" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalContentAlignment="Center" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP N Light" Foreground="Gray" />
+        <Label x:Name="lblAppName" Content="Main" Margin="0,184,0,0" FontSize="32" VerticalContentAlignment="Center" Padding="2" Foreground="White" FontFamily="Scream" Height="60" VerticalAlignment="Top" HorizontalContentAlignment="Center" />
+        <Label x:Name="lblAppDescription" Content="for test" Margin="0,230,0,0" VerticalContentAlignment="Center" Padding="2" VerticalAlignment="Top" Foreground="#FF505050" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP SemiLight" HorizontalContentAlignment="Center" Height="25" FontSize="16" />
+        <Label x:Name="lblVersion" Content="Version - 1.0.0.0" Height="24.267" Margin="0" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="2" Foreground="Gray" HorizontalContentAlignment="Center" FontFamily="/RapidDevelopmentStudio;component/Fonts/#Segoe WP SemiLight" HorizontalAlignment="Right" Width="108" />
         <Label x:Name="lblStatus" Content="Loading..." Margin="0,0,0,8" FontSize="10.667" VerticalContentAlignment="Center" Padding="2" RenderTransformOrigin="0.5,0.5" Height="22" VerticalAlignment="Bottom" Foreground="Gray" HorizontalContentAlignment="Center">
             <Label.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <controls:MetroProgressBar VerticalAlignment="Bottom" IsIndeterminate="True" Margin="0,0,0,126" Height="19" Foreground="Gray"/>
+        <controls:MetroProgressBar VerticalAlignment="Bottom" IsIndeterminate="True" Margin="0,0,0,126" Height="19" Foreground="Gray" />
     </Grid>
-    </controls:MetroWindow>
+</controls:MetroWindow>

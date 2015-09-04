@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectMooladhara
 {
@@ -38,7 +34,6 @@ namespace ProjectMooladhara
                 {
                     objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\D" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
                 }
-
                 else if (objDatabaseSelection == DatabaseSelection.HeadersDatabase)
                 {
                     objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\H" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
@@ -50,7 +45,6 @@ namespace ProjectMooladhara
                 objSQLiteAdapter.Fill(objTempDataSet);
                 objDatabaseConnection.Close();
                 return objTempDataSet;
-
             }
             catch (Exception Ex)
             {
@@ -77,7 +71,6 @@ namespace ProjectMooladhara
                 {
                     objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\D" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
                 }
-
                 else if (objDatabaseSelection == DatabaseSelection.HeadersDatabase)
                 {
                     objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\H" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
@@ -115,7 +108,6 @@ namespace ProjectMooladhara
                 {
                     objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\D" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
                 }
-
                 else if (objDatabaseSelection == DatabaseSelection.HeadersDatabase)
                 {
                     objDatabaseConnection.ConnectionString = "Data Source=" + SharedData.RDSConfigurationDirectory + "\\" + SharedData.SelectedDevice + "\\H" + SharedData.SelectedDeviceSeries + ".db;Version=3;New=False;Compress=True;";
