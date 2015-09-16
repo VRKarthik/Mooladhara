@@ -66,6 +66,15 @@ namespace ProjectMooladhara
             {
                 if (sender == btnSave)
                 {
+                    if (CHKVariableIsArray.IsChecked == true)
+                    {
+                        VariableLoadFunctions.AddVariable(TXTVariableName.Text.Trim(), CMBVariableType.Text.Trim(), TXTInitialValue.Text.Trim(), (int)NUDArraySize.Value, TXTDescription.Text.Trim(), true);
+                    }
+                    else if (CHKVariableIsArray.IsChecked == false)
+                    {
+                        VariableLoadFunctions.AddVariable(TXTVariableName.Text.Trim(), CMBVariableType.Text.Trim(), TXTInitialValue.Text.Trim(), 0, TXTDescription.Text.Trim(), false);
+                    }
+                    this.Close();
                 }
 
                 if (sender == btnClose)

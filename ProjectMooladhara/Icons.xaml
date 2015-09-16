@@ -193,7 +193,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -203,7 +203,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" />
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M12,20.14C7.59,20.14 4,16.55 4,12.14C4,7.73 7.59,4.14 12,4.14C16.41,4.14 20,7.73 20,12.14C20,16.55 16.41,20.14 12,20.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14M10,16.64L16,12.14L10,7.64V16.64Z" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -263,7 +263,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="F1 M 30.4792,27.3126L 56.6041,27.3126C 57.9158,27.3126 58.9791,27.9801 58.9791,29.2918C 58.9791,30.6034 57.9158,31.2709 56.6041,31.2709L 30.4792,31.2709C 29.1675,31.2709 28.1042,30.6034 28.1042,29.2917C 28.1042,27.98 29.1675,27.3126 30.4792,27.3126 Z M 30.4791,36.8125L 60.9582,36.8126C 62.2699,36.8126 63.3332,37.4801 63.3332,38.7918C 63.3332,40.1035 61.8827,40.6887 60.571,40.6887L 30.092,40.6886C 28.7803,40.6886 28.1041,40.1034 28.1041,38.7917C 28.1041,37.48 29.1675,36.8125 30.4791,36.8125 Z M 30.4792,46.3125L 53.0415,46.3126C 54.3532,46.3126 55.4165,46.9801 55.4165,48.2917C 55.4165,49.6034 54.3532,50.2709 53.0415,50.2709L 30.4792,50.2709C 29.1675,50.2709 28.1042,49.6034 28.1042,48.2917C 28.1042,46.98 29.1675,46.3125 30.4792,46.3125 Z M 16.6122,46.3508L 19.3192,48.7386L 24.1458,42.75L 26.3037,45.1378L 20.2769,52.25L 18.6042,52.25L 14.7735,48.4866L 14.7735,46.3508L 16.6122,46.3508 Z M 16.8293,36.8508L 19.5363,39.2386L 24.3629,33.25L 26.5208,35.6378L 20.494,42.75L 18.8213,42.75L 14.9906,38.9866L 14.9906,36.8508L 16.8293,36.8508 Z M 16.8293,27.3508L 19.5363,29.7385L 24.3629,23.75L 26.5208,26.1378L 20.494,33.25L 18.8213,33.25L 14.9906,29.4866L 14.9906,27.3508L 16.8293,27.3508 Z " />
+                    <Path Stretch="Uniform" Fill="White" UseLayoutRounding="False" Data="F1 M 30.4792,27.3126L 56.6041,27.3126C 57.9158,27.3126 58.9791,27.9801 58.9791,29.2918C 58.9791,30.6034 57.9158,31.2709 56.6041,31.2709L 30.4792,31.2709C 29.1675,31.2709 28.1042,30.6034 28.1042,29.2917C 28.1042,27.98 29.1675,27.3126 30.4792,27.3126 Z M 30.4791,36.8125L 60.9582,36.8126C 62.2699,36.8126 63.3332,37.4801 63.3332,38.7918C 63.3332,40.1035 61.8827,40.6887 60.571,40.6887L 30.092,40.6886C 28.7803,40.6886 28.1041,40.1034 28.1041,38.7917C 28.1041,37.48 29.1675,36.8125 30.4791,36.8125 Z M 30.4792,46.3125L 53.0415,46.3126C 54.3532,46.3126 55.4165,46.9801 55.4165,48.2917C 55.4165,49.6034 54.3532,50.2709 53.0415,50.2709L 30.4792,50.2709C 29.1675,50.2709 28.1042,49.6034 28.1042,48.2917C 28.1042,46.98 29.1675,46.3125 30.4792,46.3125 Z M 16.6122,46.3508L 19.3192,48.7386L 24.1458,42.75L 26.3037,45.1378L 20.2769,52.25L 18.6042,52.25L 14.7735,48.4866L 14.7735,46.3508L 16.6122,46.3508 Z M 16.8293,36.8508L 19.5363,39.2386L 24.3629,33.25L 26.5208,35.6378L 20.494,42.75L 18.8213,42.75L 14.9906,38.9866L 14.9906,36.8508L 16.8293,36.8508 Z M 16.8293,27.3508L 19.5363,29.7385L 24.3629,23.75L 26.5208,26.1378L 20.494,33.25L 18.8213,33.25L 14.9906,29.4866L 14.9906,27.3508L 16.8293,27.3508 Z " />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -273,7 +273,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="F1 M 52.2519,18.9974L 38,34.8333L 50.6666,34.8333L 25.3315,60.1667L 34.8333,39.5833L 23.7499,39.5833L 36.4164,18.9974L 52.2519,18.9974 Z M 18.2082,20.5834L 23.7499,20.5834L 29.6874,26.5209L 27.3124,29.6876L 18.2082,20.5834 Z M 42.75,45.9167L 45.9166,42.75L 57,53.8333L 53.8333,56.9999L 42.75,45.9167 Z " />
+                    <Path Stretch="Uniform" Fill="White" UseLayoutRounding="False" Data="F1 M 52.2519,18.9974L 38,34.8333L 50.6666,34.8333L 25.3315,60.1667L 34.8333,39.5833L 23.7499,39.5833L 36.4164,18.9974L 52.2519,18.9974 Z M 18.2082,20.5834L 23.7499,20.5834L 29.6874,26.5209L 27.3124,29.6876L 18.2082,20.5834 Z M 42.75,45.9167L 45.9166,42.75L 57,53.8333L 53.8333,56.9999L 42.75,45.9167 Z " />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -283,7 +283,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15Z" />
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15Z" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -293,7 +293,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="M14,14H10V11H8L12,7L16,11H14V14M16,11M5,15V5H19V15H15A3,3 0 0,1 12,18A3,3 0 0,1 9,15H5M19,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3" />
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M14,14H10V11H8L12,7L16,11H14V14M16,11M5,15V5H19V15H15A3,3 0 0,1 12,18A3,3 0 0,1 9,15H5M19,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -303,7 +303,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="M3,8H5V16H3V8M7,8H9V16H7V8M11,8H13V16H11V8M15,19.25V4.75L22.25,12L15,19.25Z" />
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M3,8H5V16H3V8M7,8H9V16H7V8M11,8H13V16H11V8M15,19.25V4.75L22.25,12L15,19.25Z" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -313,9 +313,118 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContentControl">
-                    <Path Stretch="Uniform" Fill="DarkSlateBlue" UseLayoutRounding="False" Data="M10,16.64V7.64L16,12.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14Z" />
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M10,16.64V7.64L16,12.14M12,2.14A10,10 0 0,0 2,12.14A10,10 0 0,0 12,22.14A10,10 0 0,0 22,12.14C22,6.61 17.5,2.14 12,2.14Z" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+	<Style x:Key="SingleVariable" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Path Stretch="Uniform" Fill="White" UseLayoutRounding="False" Data="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+	<Style x:Key="ArrayVariable" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Path Stretch="Uniform" Fill="White" UseLayoutRounding="False" Data="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+	<Style x:Key="SingleVariableItem" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+	<Style x:Key="ArrayVariableItem" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M16,5V18H21V5M4,18H9V5H4M10,18H15V5H10V18Z" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+	<Style x:Key="MacroIcon" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M8,3A2,2 0 0,0 6,5V9A2,2 0 0,1 4,11H3V13H4A2,2 0 0,1 6,15V19A2,2 0 0,0 8,21H10V19H8V14A2,2 0 0,0 6,12A2,2 0 0,0 8,10V5H10V3M16,3A2,2 0 0,1 18,5V9A2,2 0 0,0 20,11H21V13H20A2,2 0 0,0 18,15V19A2,2 0 0,1 16,21H14V19H16V14A2,2 0 0,1 18,12A2,2 0 0,1 16,10V5H14V3H16Z" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+	<Style x:Key="LoopIcon" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M17,17H7V14L3,18L7,22V19H19V13H17M7,7H17V10L21,6L17,2V5H5V11H7V7Z" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+	<Style x:Key="ControlIcon" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Path Stretch="Uniform" Fill="#FF2B579A" UseLayoutRounding="False" Data="M16,19A4,4 0 0,1 12,23A4,4 0 0,1 8,19C8,17.14 9.27,15.57 11,15.13C11,14.47 11,13.82 10.29,12.78C9.57,11.74 8.14,10.33 6.71,8.91C6.03,9.03 5.31,9 4.61,8.73C2.54,8 1.47,5.68 2.22,3.6C3,1.53 5.27,0.46 7.35,1.21C9.42,1.97 10.5,4.26 9.74,6.34C9.5,7.04 9.06,7.62 8.5,8.06C8.93,9.44 12,12 12,12.5C12,12 15.07,9.44 15.5,8.06C14.94,7.62 14.5,7.04 14.26,6.34C13.5,4.26 14.58,1.97 16.65,1.21C18.73,0.46 21,1.53 21.78,3.6C22.53,5.68 21.46,8 19.39,8.73C18.69,9 17.97,9.03 17.29,8.91C15.86,10.33 14.43,11.74 13.71,12.78C13,13.82 13,14.47 13,15.13C14.73,15.57 16,17.14 16,19M12,17A2,2 0 0,0 10,19A2,2 0 0,0 12,21A2,2 0 0,0 14,19A2,2 0 0,0 12,17M6.66,3.09C5.63,2.72 4.5,3.25 4.1,4.29C3.72,5.33 4.26,6.47 5.3,6.85C6.33,7.23 7.5,6.69 7.86,5.66C8.24,4.62 7.7,3.47 6.66,3.09M17.34,3.09C16.3,3.47 15.76,4.62 16.14,5.66C16.5,6.69 17.67,7.23 18.7,6.85C19.74,6.47 20.28,5.33 19.9,4.29C19.5,3.25 18.37,2.72 17.34,3.09Z" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+	<!--Grid Splitter Style -->
+	<SolidColorBrush x:Key="panelBackgroundBrush" Color="DarkGray" />
+
+	<Style x:Key="gridSplitterStyle" TargetType="{x:Type GridSplitter}">
+        <Setter Property="FrameworkElement.Height" Value="8" />
+        <Setter Property="TextElement.Foreground" Value="#FF204D89" />
+        <Setter Property="Border.BorderBrush" Value="#FF6593CF" />
+        <Setter Property="Panel.Background" Value="{StaticResource panelBackgroundBrush}" />
+        <Setter Property="Border.BorderThickness" Value="0,1,0,0" />
+        <Setter Property="UIElement.SnapsToDevicePixels" Value="True" />
+        <Setter Property="UIElement.Focusable" Value="False" />
+        <Setter Property="Control.Padding" Value="7,7,7,7" />
+        <Setter Property="FrameworkElement.Cursor" Value="SizeNS" />
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border BorderThickness="{TemplateBinding Border.BorderThickness}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}">
+                        <Border BorderThickness="1,1,0,0" BorderBrush="{StaticResource panelBackgroundBrush}">
+                            <Canvas Width="19" Height="3">
+                                <Rectangle Fill="{StaticResource panelBackgroundBrush}" Width="2" Height="2" Canvas.Left="1" Canvas.Top="0" />
+                                <Rectangle Fill="{StaticResource panelBackgroundBrush}" Width="2" Height="2" Canvas.Left="5" Canvas.Top="0" />
+                                <Rectangle Fill="{StaticResource panelBackgroundBrush}" Width="2" Height="2" Canvas.Left="9" Canvas.Top="0" />
+                                <Rectangle Fill="{StaticResource panelBackgroundBrush}" Width="2" Height="2" Canvas.Left="13" Canvas.Top="0" />
+                                <Rectangle Fill="{StaticResource panelBackgroundBrush}" Width="2" Height="2" Canvas.Left="17" Canvas.Top="0" />
+                                <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="2" Height="2" Canvas.Left="0" Canvas.Top="0" />
+                                <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="2" Height="2" Canvas.Left="4" Canvas.Top="0" />
+                                <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="2" Height="2" Canvas.Left="8" Canvas.Top="0" />
+                                <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="2" Height="2" Canvas.Left="12" Canvas.Top="0" />
+                                <Rectangle Fill="{TemplateBinding TextElement.Foreground}" Width="2" Height="2" Canvas.Left="16" Canvas.Top="0" />
+                            </Canvas>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+	<!--Grid Splitter Style -->
+
 </ResourceDictionary>

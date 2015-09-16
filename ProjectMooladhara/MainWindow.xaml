@@ -192,7 +192,7 @@
     			ToolTip="Regular Tool Tip" />
         </Fluent:Ribbon>
 
-        <avalonDock:DockingManager x:Name="dockingManager" Margin="0,143,0,25">
+        <avalonDock:DockingManager x:Name="dockingManager" Margin="0,143,0,27">
             <avalonDock:DockingManager.Theme>
                 <avalonDock:GenericTheme />
             </avalonDock:DockingManager.Theme>
@@ -212,14 +212,14 @@
                                     <Grid x:Name="GridConfiguration" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
                                         <ScrollViewer VerticalScrollBarVisibility="Auto" Width="Auto" Height="Auto" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                             <StackPanel Orientation="Vertical" Width="Auto" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch">
-                                                <Expander IsExpanded="True" Header="Configurations" Width="Auto" Height="Auto" HorizontalAlignment="Stretch">
-                                                    <GroupBox x:Name="GroupConfigurations" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="10">
+                                                <Expander Background="#FF2B579A" BorderBrush="#FF2B579A" IsExpanded="True" Header="Configurations" Width="Auto" Height="Auto" HorizontalAlignment="Stretch">
+                                                    <GroupBox Background="#FF2B579A" BorderBrush="#FF2B579A" x:Name="GroupConfigurations" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="10">
                                                         <StackPanel x:Name="ConfigurationPanel" Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" />
                                                     </GroupBox>
                                                 </Expander>
 
-                                                <Expander IsExpanded="True" Header="Frequencies" Width="Auto" Height="Auto" HorizontalAlignment="Stretch">
-                                                    <GroupBox x:Name="GroupFrequencies" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="10">
+                                                <Expander Background="#FF2B579A" BorderBrush="#FF2B579A" IsExpanded="True" Header="Frequencies" Width="Auto" Height="Auto" HorizontalAlignment="Stretch">
+                                                    <GroupBox Background="#FF2B579A" BorderBrush="#FF2B579A" x:Name="GroupFrequencies" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="10">
                                                         <StackPanel x:Name="FrequenciesPanel" Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" />
                                                     </GroupBox>
                                                 </Expander>
@@ -237,25 +237,43 @@
                                     </Grid.ColumnDefinitions>
                                     <Grid Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto" Background="Gray">
                                         <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
-											<Button Name="BTNAddVariable" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+											<Button Name="BTNAddVariable" Click="Button_Click" Height="60" Width="Auto" MinWidth="60" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
 												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
 													<ContentControl Style="{StaticResource VariableIcon}" Width="30" Height="30" />
-													<TextBlock Margin="0,3,0,0" Text="Add Variable" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+													<TextBlock Margin="0,3,0,0" Text="+ Variable" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
 												</StackPanel>
 											</Button>
-											<Button Name="BTNSave" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+											<Button Name="BTNAddMacro" Click="Button_Click" Height="60" Width="Auto" MinWidth="60" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+													<ContentControl Style="{StaticResource MacroIcon}" Width="30" Height="30" />
+													<TextBlock Margin="0,3,0,0" Text="+ Macro" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+												</StackPanel>
+											</Button>
+											<Button Name="BTNAddLoop" Click="Button_Click" Height="60" Width="Auto" MinWidth="60" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+													<ContentControl Style="{StaticResource LoopIcon}" Width="30" Height="30" />
+													<TextBlock Margin="0,3,0,0" Text="+ Loop" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+												</StackPanel>
+											</Button>
+											<Button Name="BTNAddControl" Click="Button_Click" Height="60" Width="Auto" MinWidth="60" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
+													<ContentControl Style="{StaticResource ControlIcon}" Width="30" Height="30" />
+													<TextBlock Margin="0,3,0,0" Text="+ Control" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+												</StackPanel>
+											</Button>
+											<Button Name="BTNSave" Click="Button_Click" Height="60" Width="Auto" MinWidth="60" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
 												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
 													<ContentControl Style="{StaticResource SaveIcon}" Width="30" Height="30" />
 													<TextBlock Margin="0,3,0,0" Text="Save" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
 												</StackPanel>
 											</Button>
-											<Button Name="BTNCompile" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+											<Button Name="BTNCompile" Click="Button_Click" Height="60" Width="Auto" MinWidth="60" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
 												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
 													<ContentControl Style="{StaticResource CompileIcon}" Width="30" Height="30" />
 													<TextBlock Margin="0,3,0,0" Text="Compile" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
 												</StackPanel>
 											</Button>
-											<Button Name="BTNBuild" Click="Button_Click" Height="60" Width="Auto" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+											<Button Name="BTNBuild" Click="Button_Click" Height="60" Width="Auto" MinWidth="60" Margin="4,2,4,2" HorizontalAlignment="Stretch" VerticalAlignment="Top">
 												<StackPanel Orientation="Vertical" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
 													<ContentControl Style="{StaticResource BuildIcon}" Width="30" Height="30" />
 													<TextBlock Margin="0,3,0,0" Text="Build" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontSize="10" TextWrapping="Wrap" HorizontalAlignment="Center"/>
@@ -271,11 +289,11 @@
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <Grid HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
-                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
-                                                    <ContentControl Width="46" Height="46" Style="{StaticResource ProgramTreeIcon}" Margin="4,0,0,0" />
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="#FF2B579A" Margin="0">
+                                                    <ContentControl Width="40" Height="40" Style="{StaticResource ProgramTreeIcon}" Margin="4,0,0,0" />
                                                     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
-                                                        <TextBlock Margin="4,4,4,0" Name="TBLProgramTreeTitle" Text="Main function - starting point of the program." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-                                                        <TextBlock Margin="4,0,4,0" Name="TBLProgramTreeDescription" Text="Add fuctions, variables, control statements to start program." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                                                        <TextBlock Foreground="White" Margin="4,4,4,0" Name="TBLProgramTreeTitle" Text="Main function - starting point of the program." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                                                        <TextBlock Foreground="White" Margin="4,0,4,0" Name="TBLProgramTreeDescription" Text="Add fuctions, variables, control statements to start program." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
                                                     </StackPanel>
                                                 </StackPanel>
                                                 <TreeView x:Name="ProgramTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
@@ -340,11 +358,11 @@
                                                 </GridSplitter.Style>
                                             </GridSplitter>
                                             <Grid Grid.Column="2" HorizontalAlignment="Stretch" Background="White" VerticalAlignment="Stretch" Margin="0">
-                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="WhiteSmoke" Margin="0">
-                                                    <ContentControl Width="46" Height="46" Style="{StaticResource InterruptTreeIcon}" Margin="4,0,0,0" />
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Background="#FF2B579A" Margin="0">
+                                                    <ContentControl Width="40" Height="40" Style="{StaticResource InterruptTreeIcon}" Margin="4,0,0,0" />
                                                     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Margin="4,0,0,0">
-                                                        <TextBlock Margin="4,4,4,0" Name="TBLInterruptTreeTitle" Text="Interrupt routine - starting point of the interrupt." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-                                                        <TextBlock Margin="4,0,4,0" Name="TBLInterruptTreeDescription" Text="Add fuctions, variables, control statements to start interrupt." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                                                        <TextBlock Foreground="White" Margin="4,4,4,0" Name="TBLInterruptTreeTitle" Text="Interrupt routine - starting point of the interrupt." Height="23" FontSize="14" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                                                        <TextBlock Foreground="White" Margin="4,0,4,0" Name="TBLInterruptTreeDescription" Text="Add fuctions, variables, control statements to start interrupt." Height="23" FontSize="12" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
                                                     </StackPanel>
                                                 </StackPanel>
                                                 <TreeView x:Name="InterruptTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,46,0,0" SelectedItemChanged="TreeView_SelectionChanged">
@@ -602,13 +620,53 @@
                                 </Grid>
                             </avalonDock:LayoutAnchorable>
 
-                            <avalonDock:LayoutAnchorable x:Name="TabVariablesExplorer" Title="Variables" CanClose="False" CanHide="True" />
+                            <avalonDock:LayoutAnchorable x:Name="TabVariablesExplorer" Title="Variables" CanClose="False" CanHide="True">
+								<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0" Background="White">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="5*"/>
+										<RowDefinition Height="5*"/>
+									</Grid.RowDefinitions>
+									<Grid HorizontalAlignment="Stretch" Grid.Row="0" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0">
+										<StackPanel Orientation="Horizontal" Background="#FF2B579A" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="Auto" Margin="0">
+											<ContentControl Foreground="White" Width="20" Height="20" Style="{StaticResource SingleVariable}" Margin="5,0" />
+											<Label Content="Single Variables List" FontSize="12" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" Height="Auto" Foreground="White" Width="Auto" HorizontalContentAlignment="Center" />
+										</StackPanel>
+										<TreeView Name="SingleVariableTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" Width="Auto" Height="Auto" Margin="0,25,0,0">
+											<TreeView.Resources>
+												<DataTemplate DataType="{x:Type local:VariableProperties}">
+													<StackPanel Orientation="Horizontal">
+										                <ContentControl Width="15" Height="15" Style="{StaticResource SingleVariableItem}" Margin="0,0,5,0" />
+										                <TextBlock FontWeight="Bold" Text="{Binding VariableName}" />
+										            </StackPanel>
+												</DataTemplate>
+											</TreeView.Resources>
+										</TreeView>
+									</Grid>
+									<Grid ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0">
+										<StackPanel Orientation="Horizontal" Background="#FF2B579A" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="Auto" Margin="0">
+											<ContentControl Foreground="White" Width="20" Height="20" Style="{StaticResource ArrayVariable}" Margin="5,0"/>
+											<Label Content="Array Variables List" FontSize="12" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" Height="Auto" Foreground="White" Width="Auto" HorizontalContentAlignment="Center" />
+										</StackPanel>
+										<TreeView Name="ArrayVariableTree" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsTextSearchEnabled="True" IsTextSearchCaseSensitive="False" Width="Auto" Height="Auto" Margin="0,25,0,0">
+											<TreeView.Resources>
+												<DataTemplate DataType="{x:Type local:ArrayVariableProperties}">
+													<StackPanel Orientation="Horizontal">
+										                <ContentControl Width="15" Height="15" Style="{StaticResource ArrayVariableItem}" Margin="0,0,5,0" />
+										                <TextBlock FontWeight="Bold" Text="{Binding VariableName}" />
+										            </StackPanel>
+												</DataTemplate>
+											</TreeView.Resources>
+										</TreeView>
+									</Grid>
+									<GridSplitter Height="2" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Top" ResizeDirection="Rows" ShowsPreview="True" Grid.Row="1" Style="{StaticResource gridSplitterStyle}" />
+								</Grid>
+							</avalonDock:LayoutAnchorable>
                         </avalonDock:LayoutAnchorablePane>
                     </avalonDock:LayoutAnchorablePaneGroup>
                 </avalonDock:LayoutPanel>
             </avalonDock:LayoutRoot>
         </avalonDock:DockingManager>
-        <Grid Height="25" VerticalAlignment="Bottom" Background="#FF000068" />
+        <Grid Height="25" VerticalAlignment="Bottom" Background="#FF2B579A" />
         <Button x:Name="TestSave" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="675,54,0,0" Click="Button_Click" />
     </Grid>
 </Fluent:RibbonWindow>

@@ -26,6 +26,7 @@ namespace ProjectMooladhara
 
                     objFunction.Description = objRow["DESC"].ToString();
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.ModifiedSyntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
                     objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
@@ -38,6 +39,7 @@ namespace ProjectMooladhara
 
                     objFunction.Description = objRow["DESC"].ToString();
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.ModifiedSyntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
                     objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
@@ -55,6 +57,7 @@ namespace ProjectMooladhara
 
                     objFunction.Description = objRow["DESC"].ToString();
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.ModifiedSyntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
                     objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
@@ -77,6 +80,7 @@ namespace ProjectMooladhara
 
                     objFunction.Description = objRow["DESC"].ToString();
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.ModifiedSyntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
                     objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";
@@ -104,6 +108,7 @@ namespace ProjectMooladhara
 
                     objFunction.Description = objRow["DESC"].ToString();
                     objFunction.Syntax = objRow["SYNTAX"].ToString();
+                    objFunction.ModifiedSyntax = objRow["SYNTAX"].ToString();
                     objFunction.FunctionName = objRow["FUNC_NAME"].ToString();
                     objFunction.ReturnType = objRow["RET_TYPE"].ToString();
                     objFunction.FunctionNameWithArgCount = "[" + intArgsCount + " arg(s)]";

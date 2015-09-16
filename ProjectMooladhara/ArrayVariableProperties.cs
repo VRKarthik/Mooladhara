@@ -3,7 +3,7 @@
 namespace ProjectMooladhara
 {
     [DisplayName("Variable Properties")]
-    public class VariableProperties : FunctionWithProperties
+    public class ArrayVariableProperties : FunctionWithProperties
     {
         //General
         private string _VariableName;
@@ -52,6 +52,18 @@ namespace ProjectMooladhara
         {
             get { return _UserValue; }
             set { _UserValue = value; }
+        }
+
+        private int _ArraySize;
+
+        [Category("General")]
+        [DisplayName("Array Size")]
+        [Description("Size of the array variable.")]
+        [ReadOnly(true)]
+        public int ArraySize
+        {
+            get { return _ArraySize; }
+            set { _ArraySize = value; }
         }
 
         private string _Description;

@@ -6,7 +6,7 @@
              mc:Ignorable="d" d:DesignWidth="300" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" Height="74">
     <Grid Margin="0">
         <Label x:Name="ConfigurationName" Content="Label" Margin="0" VerticalAlignment="Top" FontSize="14.667" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" />
-        <Label x:Name="ConfigurationDescription" Margin="0,20,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontStyle="Italic" FontSize="12" Padding="5" Foreground="{DynamicResource AccordionButtonExpandedBackgroundBrush}" Content="description" />
+        <Label x:Name="ConfigurationDescription" Margin="0,20,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" FontStyle="Italic" FontSize="12" Padding="5" Foreground="#FF2B579A" Content="description" />
         <ComboBox x:Name="ConfigurationList" FontFamily="/ProjectMooladhara;component/Fonts/#Ubuntu Light" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="14.667" Margin="0,43.786,0,0" />
     </Grid>
 </UserControl>

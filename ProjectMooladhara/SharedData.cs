@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
 
 namespace ProjectMooladhara
@@ -24,6 +25,9 @@ namespace ProjectMooladhara
         private static string _SelectedDevice = null;
         private static string _SelectedDeviceSeries = null;
         private static string _SelectedSeries = null;
+
+        private static ObservableCollection<VariableProperties> _SingleVariablesCollection;
+        private static ObservableCollection<ArrayVariableProperties> _ArrayVariablesCollection;
 
         private static FileSystemWatcher _FileSystemWatcher = null;
 
@@ -185,6 +189,18 @@ namespace ProjectMooladhara
         {
             get { return _FileSystemWatcher; }
             set { _FileSystemWatcher = value; }
+        }
+
+        public static ObservableCollection<VariableProperties> SingleVariablesCollection
+        {
+            get { return _SingleVariablesCollection; }
+            set { _SingleVariablesCollection = value; }
+        }
+
+        public static ObservableCollection<ArrayVariableProperties> ArrayVariablesCollection
+        {
+            get { return _ArrayVariablesCollection; }
+            set { _ArrayVariablesCollection = value; }
         }
     }
 }

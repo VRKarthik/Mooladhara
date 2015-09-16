@@ -17,6 +17,7 @@ namespace ProjectMooladhara
                 LoadConfigurations();
                 LoadProjectExplorer();
                 LoadFunctions();
+                LoadVariableExplorer();
 
                 ProjectWatcher objWatcher = new ProjectWatcher();
 
@@ -273,6 +274,22 @@ namespace ProjectMooladhara
             try
             {
                 SharedData.objMainWindow.InterruptTree.Items.Add(new InterruptFunctionProperties());
+            }
+            catch (Exception Ex)
+            {
+                throw new Exception("Can't load functions.\n" + Ex.Message);
+            }
+        }
+
+        public static void LoadVariableExplorer()
+        {
+            try
+            {
+                VariableCollection objVariableCollection = new VariableCollection();
+                SharedData.SingleVariablesCollection = objVariableCollection.SingleVariablesCollection;
+                SharedData.ArrayVariablesCollection = objVariableCollection.ArrayVariablesCollection;
+                SharedData.objMainWindow.SingleVariableTree.ItemsSource = SharedData.SingleVariablesCollection;
+                SharedData.objMainWindow.ArrayVariableTree.ItemsSource = SharedData.ArrayVariablesCollection;
             }
             catch (Exception Ex)
             {

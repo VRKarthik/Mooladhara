@@ -62,6 +62,19 @@ namespace ProjectMooladhara
             set { _Syntax = value; }
         }
 
+        private string _ModifiedSyntax;
+
+        [Category("General")]
+        [DisplayName("Modified Syntax")]
+        [Description("Actual syntax of function used in code with user values.")]
+        [ReadOnly(true)]
+        [Browsable(true)]
+        public string ModifiedSyntax
+        {
+            get { return _ModifiedSyntax; }
+            set { _ModifiedSyntax = value; }
+        }
+
         private string _Description;
 
         [Category("General")]

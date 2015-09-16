@@ -71,6 +71,19 @@ namespace ProjectMooladhara
             set { _Syntax = value; }
         }
 
+        private string _ModifiedSyntax;
+
+        [Category("General")]
+        [DisplayName("Modified Syntax")]
+        [Description("Actual syntax of function used in code with user values.")]
+        [ReadOnly(true)]
+        [Browsable(true)]
+        public string ModifiedSyntax
+        {
+            get { return _ModifiedSyntax; }
+            set { _ModifiedSyntax = value; OnPropertyChanged("ModifiedSyntax"); }
+        }
+
         private string _Description;
 
         [Category("General")]
@@ -162,7 +175,11 @@ namespace ProjectMooladhara
         public string Argument1UserValue
         {
             get { return _Argument1UserValue; }
-            set { _Argument1UserValue = value; }
+            set 
+            {
+                _Argument1UserValue = value;
+                ModifiedSyntax = ModifiedSyntax.Replace("arg1", value);
+            }
         }
 
         private string _Argument1ValueSource;
@@ -244,7 +261,11 @@ namespace ProjectMooladhara
         public string Argument2UserValue
         {
             get { return _Argument2UserValue; }
-            set { _Argument2UserValue = value; }
+            set 
+            {
+                _Argument2UserValue = value;
+                ModifiedSyntax = ModifiedSyntax.Replace("arg2", value);
+            }
         }
 
         private string _Argument2ValueSource;
